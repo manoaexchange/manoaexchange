@@ -1,12 +1,13 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
-import './index.css'
-import Landing from './landing'
-import Userpage from './userpage'
-import Adminpage from './adminpage'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Route, Link, BrowserRouter as Router } from 'react-router-dom';
+import './index.css';
+import Landing from './landing';
+import Userpage from './userpage';
+import Adminpage from './adminpage';
 import Makeoffer from './makeoffer';
 import Loginpage from './loginpage';
+import Notifyadmin from './notifyadmin';
 
 const routing = (
     <Router>
@@ -27,6 +28,9 @@ const routing = (
           <li>
             <Link to="/login">Login here</Link>
           </li>
+          <li>
+            <Link to="/notify">Report an issue</Link>
+          </li>
         </ul>
 
         <Route  exact path="/" component={Landing} />
@@ -34,6 +38,7 @@ const routing = (
         <Route path="/admin" component={Adminpage} />
         <Route path="/makeoffer" component={Makeoffer} />
         <Route path="/login" component={Loginpage} />
+        <Route path="/notify" component={Notifyadmin} />
       </div>
     </Router>
 )
