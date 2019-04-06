@@ -14,3 +14,12 @@
   padding-top: 50px;
   padding-bottom: 50px;
 }
+
+.landing.banner.image {
+  background: url(./UH_Liliuokalani_Center.JPG) no-repeat center center fixed;
+  background-size: cover;
+  opacity: .35;
+  height: 600px;
+  color: black;
+  text-shadow: black;
+}

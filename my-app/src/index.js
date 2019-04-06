@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import { Route, BrowserRouter as Router } from 'react-router-dom'
 import './index.css'
 import Landing from './landing'
 import Userpage from './userpage'
@@ -11,29 +11,12 @@ import Loginpage from './loginpage';
 const routing = (
     <Router>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Landing</Link>
-          </li>
-          <li>
-            <Link to="/users">Users</Link>
-          </li>
-          <li>
-            <Link to="/admin">Admin</Link>
-          </li>
-          <li>
-            <Link to="/makeoffer">Make offer</Link>
-          </li>
-          <li>
-            <Link to="/login">Login here</Link>
-          </li>
-        </ul>
 
-        <Route  exact path="/" component={Landing} />
-        <Route path="/users" component={Userpage} />
-        <Route path="/admin" component={Adminpage} />
-        <Route path="/makeoffer" component={Makeoffer} />
-        <Route path="/login" component={Loginpage} />
+        <Route exact path="/" component={Landing}/>
+        <Route path="/users" component={Userpage}/>
+        <Route path="/admin" component={Adminpage}/>
+        <Route path="/makeoffer" component={Makeoffer}/>
+        <Route path="/login" component={Loginpage}/>
       </div>
     </Router>
 )
