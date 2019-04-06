@@ -8,6 +8,8 @@ import Adminpage from './adminpage';
 import Makeoffer from './makeoffer';
 import Loginpage from './loginpage';
 import Notifyadmin from './notifyadmin';
+import Createitem from './createitem';
+
 
 const routing = (
     <Router>
@@ -31,6 +33,9 @@ const routing = (
           <li>
             <Link to="/notify">Report an issue</Link>
           </li>
+          <li>
+            <Link to="/create">Sell an item</Link>
+          </li>
         </ul>
 
         <Route  exact path="/" component={Landing} />
@@ -39,6 +44,7 @@ const routing = (
         <Route path="/makeoffer" component={Makeoffer} />
         <Route path="/login" component={Loginpage} />
         <Route path="/notify" component={Notifyadmin} />
+        <Route path="/create" component={Createitem} />
       </div>
     </Router>
 )
