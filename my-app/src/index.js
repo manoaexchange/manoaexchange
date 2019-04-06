@@ -1,12 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { Route, Link, BrowserRouter as Router } from 'react-router-dom'
+import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom'
 import './index.css'
 import Landing from './landing'
 import Userpage from './userpage'
 import Adminpage from './adminpage'
-import Makeoffer from './makeoffer';
-import Loginpage from './loginpage';
+import Makeoffer from './makeoffer'
+import Loginpage from './loginpage'
+import Notfound from './notfound'
 
 const routing = (
     <Router>
@@ -28,12 +29,14 @@ const routing = (
             <Link to="/login">Login here</Link>
           </li>
         </ul>
-
-        <Route  exact path="/" component={Landing} />
+        <Switch>
+        <Route exact path="/" component={Landing} />
         <Route path="/users" component={Userpage} />
         <Route path="/admin" component={Adminpage} />
         <Route path="/makeoffer" component={Makeoffer} />
         <Route path="/login" component={Loginpage} />
+        <Route component={Notfound} />
+        </Switch>
       </div>
     </Router>
 )
