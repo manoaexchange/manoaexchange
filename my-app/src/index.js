@@ -8,31 +8,16 @@ import Adminpage from './adminpage'
 import Makeoffer from './makeoffer'
 import Loginpage from './loginpage'
 import Notfound from './notfound'
+import Userhomepage from './userhomepage';
 
 const routing = (
     <Router>
       <div>
-        <ul>
-          <li>
-            <Link to="/">Landing</Link>
-          </li>
-          <li>
-            <Link to="/users">Users</Link>
-          </li>
-          <li>
-            <Link to="/admin">Admin</Link>
-          </li>
-          <li>
-            <Link to="/makeoffer">Make offer</Link>
-          </li>
-          <li>
-            <Link to="/login">Login here</Link>
-          </li>
-        </ul>
         <Switch>
         <Route exact path="/" component={Landing} />
         <Route path="/users" component={Userpage} />
         <Route path="/admin" component={Adminpage} />
+        <Route path="/userhome" component={Userhomepage} />
         <Route path="/makeoffer" component={Makeoffer} />
         <Route path="/login" component={Loginpage} />
         <Route component={Notfound} />
