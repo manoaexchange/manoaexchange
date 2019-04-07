@@ -4,11 +4,11 @@ import { Route, Link, BrowserRouter as Router, Switch } from 'react-router-dom'
 import './index.css'
 import Landing from './landing'
 import Userpage from './userpage'
-import Adminpage from './adminpage'
+import Adminhome from './adminhome'
 import Makeoffer from './makeoffer'
 import Loginpage from './loginpage'
 import Notfound from './notfound'
-import Userhomepage from './userhomepage';
+import Userhome from './userhome';
 
 const routing = (
     <Router>
@@ -16,8 +16,9 @@ const routing = (
         <Switch>
         <Route exact path="/" component={Landing} />
         <Route path="/users" component={Userpage} />
-        <Route path="/admin" component={Adminpage} />
-        <Route path="/userhome" component={Userhomepage} />
+        <Route path="/admin" component={Adminhome} />
+        <Route path="/adminhome" component={Adminhome} />
+        <Route path="/userhome" component={Userhome} />
         <Route path="/makeoffer" component={Makeoffer} />
         <Route path="/login" component={Loginpage} />
         <Route component={Notfound} />
