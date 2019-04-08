@@ -1,6 +1,7 @@
 import React from 'react';
-import './style.css';
 import 'semantic-ui-css/semantic.min.css';
+import './style.css';
+
 import { Form, Input, TextArea, Button, Select } from 'semantic-ui-react'
 
 const issueOptions = [
