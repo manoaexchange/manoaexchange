@@ -10,7 +10,11 @@ class ProfileDescription extends React.Component {
         <div>
           <h2>Katherine Piniol</h2>
           <Image src={piniolkimg} size='medium' inline/>
+
           <p>
+            <Button basic color='red' centered>
+            Report
+          </Button>
             <p>Email: sample@sample.com</p>
             <p>Phone: (808)123-4567</p>
           </p>
@@ -23,48 +27,21 @@ class ProfileProductsOffered extends React.Component {
   render() {
     return (
         <div>
-          <Card.group>
-            <Card>
+          <h2>Products On Sale</h2>
+          <Card.Group>
+            <Card centered href=''>
               <Card.Content>
-                <Image size='small' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
-                <Card.Header>Steve Sanders</Card.Header>
-                <Card.Meta>Friends of Elliot</Card.Meta>
-                <Card.Description>
-                  Steve wants to add you to the group <strong>best friends</strong>
-                </Card.Description>
+                <Card.Header>Desk Lamp</Card.Header>
+                <Image size='small'
+                       src='https://cdn.pixabay.com/photo/2017/05/17/11/20/table-lamp-2320604_960_720.png'/>
               </Card.Content>
               <Card.Content extra>
-                <div className='ui two buttons'>
-                  <Button basic color='green'>
-                    Approve
-                  </Button>
-                  <Button basic color='red'>
-                    Decline
-                  </Button>
-                </div>
+                <Button basic color='black'>
+                  See Product
+                </Button>
               </Card.Content>
             </Card>
-            <Card>
-              <Card.Content>
-                <Image size='small' src='https://react.semantic-ui.com/images/avatar/large/steve.jpg' />
-                <Card.Header>Steve Sanders</Card.Header>
-                <Card.Meta>Friends of Elliot</Card.Meta>
-                <Card.Description>
-                  Steve wants to add you to the group <strong>best friends</strong>
-                </Card.Description>
-              </Card.Content>
-              <Card.Content extra>
-                <div className='ui two buttons'>
-                  <Button basic color='green'>
-                    Approve
-                  </Button>
-                  <Button basic color='red'>
-                    Decline
-                  </Button>
-                </div>
-              </Card.Content>
-            </Card>
-          </Card.group>
+          </Card.Group>
         </div>
     )
   }
