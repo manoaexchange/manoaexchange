@@ -8,7 +8,7 @@ class AdminNavMenu extends React.Component {
   render() {
     return (
         <div>
-          <Menu className='fixed menu userNavMenu'>
+          <Menu className='ui fixed menu userNavMenu'>
             <Container>
               <Menu.Item><Icon name='home'/></Menu.Item>
               <Menu.Item>Categories</Menu.Item>
@@ -39,7 +39,7 @@ class UserBannerImage extends React.Component {
             </Grid>
           </div>
           <h1 className="centered ui header gettingStarted">Quick Start Options</h1>
-          <div className='landing description'>
+          <div className='landing options'>
             <Grid container columns={3} centered relaxed>
               <Grid.Row>
                 <Grid.Column>
@@ -55,7 +55,7 @@ class UserBannerImage extends React.Component {
                     <Icon name='question circle' size='big'/>
                   </Divider>
                   <div className='text landingCategories'>
-                    Placeholder categories?
+                    Placeholder ...?
                   </div>
                 </Grid.Column>
                 <Grid.Column>
