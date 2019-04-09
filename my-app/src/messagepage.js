@@ -11,9 +11,17 @@ class MessageHead extends React.Component {
         <div>
           <Grid centered style={msgTitleMargin}>
             <h2>Messages from Katherine Piniol</h2>
+            <div className='ui two buttons'>
+            <Button color='teal'>
+              Profile
+            </Button>
+            <Button color='red'>
+              Report
+            </Button>
+            </div>
           </Grid>
           <Image src={piniolkimg} size='tiny' centered/>
-          <Divider />
+          <Divider/>
         </div>
     )
   }
