@@ -8,28 +8,9 @@ const issueOptions = [
   { key: 'i', text: 'Report inappropriate behavior', value: 'behavior' },
 ];
 
-
-class NavMenu extends React.Component {
-  render() {
-    return (
-        <Container>
-          <Menu className='fixed menu navMenu'>
-            <Container>
-              <Menu.Item><Icon name='home'/></Menu.Item>
-              <Menu.Item>Categories</Menu.Item>
-              <Menu.Item>
-                <Input icon='search' placeholder='Search'/>
-              </Menu.Item>
-              <Menu.Item position='right'>Sign In</Menu.Item>
-            </Container>
-          </Menu>
-        </Container>
-    )
-  }
-}
-
-const Commands = () => (
+const Notifyform = () => (
     <Container className='notifyAdmin'>
+      <h1>Report an Issue</h1>
       <Form>
         <Form.Group widths='equal'>
           <Form.Field
@@ -74,8 +55,7 @@ class Notify extends React.Component {
   render() {
     return (
         <div>
-          <NavMenu/>
-          <Commands/>
+          <Notifyform/>
         </div>
     );
   }
