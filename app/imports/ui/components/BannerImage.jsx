@@ -1,27 +1,8 @@
 import React from 'react';
-import './style.css';
-import 'semantic-ui-css/semantic.min.css';
-import { Menu, Container, Icon, Input, Grid, Divider } from 'semantic-ui-react';
+import { Grid, Icon, Divider } from 'semantic-ui-react';
 
-class NavMenu extends React.Component {
-  render() {
-    return (
-        <div>
-          <Menu className='fixed menu navMenu'>
-            <Container>
-              <Menu.Item><Icon name='home'/></Menu.Item>
-              <Menu.Item>Categories</Menu.Item>
-              <Menu.Item>
-                <Input icon='search' placeholder='Search'/>
-              </Menu.Item>
-              <Menu.Item position='right'>Sign In</Menu.Item>
-            </Container>
-          </Menu>
-        </div>
-    )
-  }
-}
 
+/** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
 class BannerImage extends React.Component {
   render() {
     const gridStyle = { height: '400px' };
@@ -64,16 +45,4 @@ class BannerImage extends React.Component {
   }
 }
 
-class Landing extends React.Component {
-
-  render() {
-    return (
-        <div>
-          <NavMenu/>
-          <BannerImage/>
-        </div>
-    );
-  }
-}
-
-export default Landing
+export default BannerImage;
