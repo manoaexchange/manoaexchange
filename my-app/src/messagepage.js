@@ -76,7 +76,6 @@ class Message extends React.Component {
           </Form>
         </Comment.Group>
     )
-    )
   }
 }
 
