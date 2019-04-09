@@ -1,15 +1,35 @@
 import React from 'react';
 import './style.css';
 import 'semantic-ui-css/semantic.min.css';
-import { Form, Input, TextArea, Button, Select, Container } from 'semantic-ui-react'
+import { Form, Input, TextArea, Button, Select, Container, Menu, Icon } from 'semantic-ui-react'
 
 const issueOptions = [
   { key: 'b', text: 'Report a bug', value: 'nug' },
   { key: 'i', text: 'Report inappropriate behavior', value: 'behavior' },
 ];
 
-const Notify = () => (
-    <Container>
+
+class NavMenu extends React.Component {
+  render() {
+    return (
+        <Container>
+          <Menu className='fixed menu navMenu'>
+            <Container>
+              <Menu.Item><Icon name='home'/></Menu.Item>
+              <Menu.Item>Categories</Menu.Item>
+              <Menu.Item>
+                <Input icon='search' placeholder='Search'/>
+              </Menu.Item>
+              <Menu.Item position='right'>Sign In</Menu.Item>
+            </Container>
+          </Menu>
+        </Container>
+    )
+  }
+}
+
+const Commands = () => (
+    <Container className='notifyAdmin'>
       <Form>
         <Form.Group widths='equal'>
           <Form.Field
@@ -47,6 +67,17 @@ const Notify = () => (
         />
       </Form>
     </Container>
-)
+);
 
+class Notify extends React.Component {
+
+  render() {
+    return (
+        <div>
+          <NavMenu/>
+          <Commands/>
+        </div>
+    );
+  }
+}
 export default Notify

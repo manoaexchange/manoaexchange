@@ -14,3 +14,36 @@
   padding-top: 50px;
   padding-bottom: 50px;
 }
+
+.navMenu {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.landing.banner {
+  background-size: cover;
+  height: 400px;
+  opacity: .7;
+}
+
+.bannerText {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 4.5em;
+  text-shadow: 2px 2px whitesmoke;
+  color: black;
+}
+
+.landingDescText {
+  font-size: 1.5em;
+}
+
+.landing.description {
+  padding-top: 20px;
+  padding-bottom: 50px;
+  background: #FBF3EB;
+}
+
+.notifyAdmin {
+  margin-top: 150px;
+}
