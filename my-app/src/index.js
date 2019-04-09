@@ -7,6 +7,7 @@ import Userpage from './userpage'
 import Adminpage from './adminpage'
 import Makeoffer from './makeoffer'
 import Loginpage from './loginpage'
+import Signup from './signup'
 import Notfound from './notfound'
 
 const routing = (
@@ -18,7 +19,9 @@ const routing = (
         <Route path="/admin" component={Adminpage} />
         <Route path="/makeoffer" component={Makeoffer} />
         <Route path="/login" component={Loginpage} />
-        <Route component={Notfound} />
+        <Route path="/signup" component={Signup} />
+
+          <Route component={Notfound} />
         </Switch>
       </div>
     </Router>
