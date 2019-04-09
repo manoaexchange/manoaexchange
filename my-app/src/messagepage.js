@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css';
 import 'semantic-ui-css/semantic.min.css';
-import { Comment, Header } from 'semantic-ui-react';
+import { Comment, Header, Form, Button } from 'semantic-ui-react';
 
 class Message extends React.Component {
   render() {
@@ -83,8 +83,10 @@ class Messagepage extends React.Component {
 
   render() {
     return (
+        <Div>
         <h1>Login</h1>
         <Message/>
+        </Div>
     );
   }
 }

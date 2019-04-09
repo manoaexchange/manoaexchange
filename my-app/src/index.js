@@ -1,14 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { Route, BrowserRouter as Router, Switch } from 'react-router-dom'
-import './index.css'
-import Landing from './landing'
-import Userpage from './userpage'
-import Adminpage from './adminpage'
-import Makeoffer from './makeoffer'
-import Loginpage from './loginpage'
-import Messagepage from './messagepage'
-import Notfound from './notfound'
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Route, BrowserRouter as Router, Switch } from 'react-router-dom';
+import './index.css';
+import Landing from './landing';
+import Userpage from './userpage';
+import Adminpage from './adminpage';
+import Makeoffer from './makeoffer';
+import Loginpage from './loginpage';
+import Messagepage from './messagepage';
+import Notfound from './notfound';
 
 const routing = (
     <Router>
