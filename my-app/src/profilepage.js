@@ -13,8 +13,8 @@ class ProfileDescription extends React.Component {
 
           <p>
             <Button basic color='red' centered>
-            Report
-          </Button>
+              Report
+            </Button>
             <p>Email: sample@sample.com</p>
             <p>Phone: (808)123-4567</p>
           </p>
