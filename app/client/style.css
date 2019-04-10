@@ -1,0 +1,28 @@
+.userLandingBanner {
+  background: url(images/UH_Liliuokalani_Center_Cropped.JPG) no-repeat center center fixed; /*Placeholder image*/
+  background-size: cover;
+  height: 250px;
+  opacity: .7;
+}
+
+.userNavMenu {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 100px;
+}
+
+.userBannerText {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 4.5em;
+  text-shadow: 2px 2px whitesmoke;
+  color: black;
+}
+
+.gettingStarted {
+  font-family: 'sans-serif';
+  font-weight: bold;
+  font-size: 2.5em;
+  color: black;
+  text-shadow: none;
+}
