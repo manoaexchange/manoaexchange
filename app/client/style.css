@@ -21,7 +21,7 @@
 }
 
 .landing.banner {
-  background: url(./UH_Liliuokalani_Center.JPG) no-repeat center center fixed;
+  background: url('images/UH_Liliuokalani_Center.JPG') no-repeat center center fixed;
   background-size: cover;
   height: 400px;
   opacity: .7;

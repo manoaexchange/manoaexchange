@@ -3,7 +3,7 @@ import { Grid, Icon, Divider } from 'semantic-ui-react';
 
 
 /** The Footer appears at the bottom of every page. Rendered by the App Layout component. */
-class BannerImage extends React.Component {
+export default class BannerImage extends React.Component {
   render() {
     const gridStyle = { height: '400px' };
     return (
@@ -41,8 +41,6 @@ class BannerImage extends React.Component {
             </Grid>
           </div>
         </div>
-    )
+    );
   }
 }
-
-export default BannerImage;
