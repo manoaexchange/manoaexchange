@@ -1,33 +1,9 @@
 import React from 'react';
-import './style.css';
-import 'semantic-ui-css/semantic.min.css';
-import { Card, Container, Image, Grid, Divider, Segment, Form, Button } from 'semantic-ui-react';
-import piniolkimg from './piniolkimg.png';
+import { Card, Grid, Segment, Form, Button } from 'semantic-ui-react';
 
-class MessageHead extends React.Component {
-  render() {
-    const msgTitleMargin = { margin: "10px" };
-    return (
-        <div>
-          <Grid centered style={msgTitleMargin}>
-            <h2>Messages from Katherine Piniol</h2>
-            <div className='ui two buttons'>
-            <Button color='teal'>
-              Profile
-            </Button>
-            <Button color='red'>
-              Report
-            </Button>
-            </div>
-          </Grid>
-          <Image src={piniolkimg} size='tiny' centered/>
-          <Divider/>
-        </div>
-    )
-  }
-}
 
-class MessageFeed extends React.Component {
+/** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
+export default class MessageFeed extends React.Component {
   render() {
     return (
         <div>
@@ -63,7 +39,7 @@ class MessageFeed extends React.Component {
                     <Card.Content>
                       <Card.Header>Katherine Piniol</Card.Header>
                       <Card.Meta>Monday 7:20 pm</Card.Meta>
-                      <Card.Description>It's works just fine. Shall we meet at Campus Center on Friday at
+                      <Card.Description>It&apos;s works just fine. Shall we meet at Campus Center on Friday at
                         3?</Card.Description>
                     </Card.Content>
                   </Segment>
@@ -90,31 +66,6 @@ class MessageFeed extends React.Component {
             </Grid>
           </Card.Group>
         </div>
-    )
-  }
-}
-
-class Messagepage extends React.Component {
-
-  render() {
-    return (
-        <div>
-          <Container>
-            <Grid centered columns={3}>
-              <Grid.Row centered>
-                <Grid.Column>
-                  <div className='messagebgpage'>
-                    <MessageHead/>
-                    <Divider hidden/>
-                    <MessageFeed/>
-                  </div>
-                </Grid.Column>
-              </Grid.Row>
-            </Grid>
-          </Container>
-        </div>
     );
   }
 }
-
-export default Messagepage
