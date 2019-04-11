@@ -11,6 +11,7 @@ export default class NavMenu extends React.Component {
             <Container>
               <Menu.Item as={NavLink} activeClassName="" exact to="/"><Icon name='home'/></Menu.Item>
               <Menu.Item as={NavLink} activeClassName="" exact to="/profile">Profile</Menu.Item>
+              <Menu.Item as={NavLink} activeClassName="" exact to="/message">Message</Menu.Item>
               <Menu.Item>Categories</Menu.Item>
               <Menu.Item>
                 <Input icon='search' placeholder='Search'/>
