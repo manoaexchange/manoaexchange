@@ -1,17 +1,19 @@
 import React from 'react';
-import { Grid, Divider, Input, Icon } from 'semantic-ui-react';
+import { Grid, Divider, Input, Icon, Container } from 'semantic-ui-react';
 
 /** A simple static component to render some text for the landing page. */
-class Landing extends React.Component {
+class UserLanding extends React.Component {
   render() {
     return (
         <div>
           <div className='userLandingBanner'>
-            <Grid verticalAlign='middle' columns={2}>
-              <Grid.Column>
-                <div className='text userBannerText'>MANOA EXCHANGE</div>
-              </Grid.Column>
-            </Grid>
+            <Container>
+              <Grid verticalAlign='middle' columns={1}>
+                <Grid.Column>
+                  <div className='text userBannerText'>MANOA EXCHANGE</div>
+                </Grid.Column>
+              </Grid>
+            </Container>
           </div>
           <h1 className="centered ui header gettingStarted">Quick Start Options</h1>
           <div className='landing options'>
@@ -53,7 +55,7 @@ class Landing extends React.Component {
               </Divider>
               <Grid.Row>
                 <div>
-                  <Input style={{width:"500px"}} size='massive' icon='search' placeholder='Search'/>
+                  <Input style={{ width: '500px' }} size='massive' icon='search' placeholder='Search'/>
                 </div>
               </Grid.Row>
             </Grid>
@@ -63,4 +65,4 @@ class Landing extends React.Component {
   }
 }
 
-export default Landing;
+export default UserLanding;
