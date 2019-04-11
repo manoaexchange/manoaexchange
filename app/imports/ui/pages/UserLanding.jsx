@@ -15,8 +15,8 @@ class UserLanding extends React.Component {
               </Grid>
             </Container>
           </div>
-          <h1 className="centered ui header gettingStarted">Quick Start Options</h1>
-          <div className='landing options'>
+          <div className='landing description'>
+            <h1 className="centered ui header gettingStarted">Quick Start Options</h1>
             <Grid container columns={3} centered relaxed>
               <Grid.Row>
                 <Grid.Column>

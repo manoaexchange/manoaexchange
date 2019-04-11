@@ -9,13 +9,13 @@ export default class ProfileDescription extends React.Component {
           <h2>Katherine Piniol</h2>
           <Image src={'/images/piniolkimg.png'} size='medium' inline/>
           <p>
-            <Button basic color='red' centered as={NavLink} activeClassName="" exact to="/notify">
+            <Button color='red' centered as={NavLink} activeClassName="" exact to="/notify">
               Report
             </Button>
             <p>Email: sample@sample.com</p>
             <p>Phone: (808)123-4567</p>
           </p>
-          <Button floated='right'>Edit Profile</Button>
+          <Button floated='right' as={NavLink} activeClassName="" exact to="/EDITPROFILE">Edit Profile</Button>
         </div>
     );
   }
