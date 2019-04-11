@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Button, Image, Divider } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -14,7 +15,7 @@ export default class MessageHead extends React.Component {
               <Button color='teal'>
                 Profile
               </Button>
-              <Button color='red'>
+              <Button color='red' as={NavLink} activeClassName="" exact to="/notify">
                 Report
               </Button>
             </div>
