@@ -44,3 +44,11 @@
   padding-bottom: 50px;
   background: #FBF3EB;
 }
+
+.messagebgpage {
+  background-color: beige;
+  padding: 15px 15px 40px 15px;
+  margin-bottom: 0px;
+
+  box-shadow:  0px 2px 4px 1px grey;
+}
