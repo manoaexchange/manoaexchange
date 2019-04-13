@@ -12,7 +12,7 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import LongTextField from './AddItem';
+import LongTextField from 'uniforms-semantic/LongTextField';
 
 /** Renders the Page for editing a single document. */
 class EditItem extends React.Component {
@@ -35,10 +35,10 @@ class EditItem extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Edit Stuff</Header>
+            <Header as="h2" textAlign="center">Edit your listed item</Header>
             <AutoForm schema={StuffSchema} onSubmit={this.submit} model={this.props.doc}>
               <Segment>
-                <TextField name='name'/>
+                <TextField name='item'/>
                 <LongTextField name='description'/>
                 <TextField name='image'/>
                 <NumField name='quantity' decimal={false}/>
