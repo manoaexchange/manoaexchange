@@ -10,8 +10,8 @@ import Landing from '../pages/Landing';
 import UserLanding from '../pages/UserLanding';
 import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
-import AddStuff from '../pages/AddStuff';
-import EditStuff from '../pages/EditStuff';
+import AddItem from '../pages/AddItem';
+import EditItem from '../pages/EditItem';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -36,8 +36,8 @@ class App extends React.Component {
               <ProtectedRoute path="/message" component={Message}/>
               <ProtectedRoute path="/home" component={UserLanding}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
-              <ProtectedRoute path="/add" component={AddStuff}/>
-              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
+              <ProtectedRoute path="/add" component={AddItem}/>
+              <ProtectedRoute path="/edit/:_id" component={EditItem}/>
               <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
               <ProtectedRoute path="/signout" component={Signout}/>
               <ProtectedRoute path="/notify" component={NotifyAdmin}/>

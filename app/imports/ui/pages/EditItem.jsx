@@ -12,9 +12,10 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import LongTextField from './AddItem';
 
 /** Renders the Page for editing a single document. */
-class EditStuff extends React.Component {
+class EditItem extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
@@ -38,6 +39,8 @@ class EditStuff extends React.Component {
             <AutoForm schema={StuffSchema} onSubmit={this.submit} model={this.props.doc}>
               <Segment>
                 <TextField name='name'/>
+                <LongTextField name='description'/>
+                <TextField name='image'/>
                 <NumField name='quantity' decimal={false}/>
                 <SelectField name='condition'/>
                 <SubmitField value='Submit'/>
@@ -52,7 +55,7 @@ class EditStuff extends React.Component {
 }
 
 /** Require the presence of a Stuff document in the props object. Uniforms adds 'model' to the props, which we use. */
-EditStuff.propTypes = {
+EditItem.propTypes = {
   doc: PropTypes.object,
   model: PropTypes.object,
   ready: PropTypes.bool.isRequired,
@@ -68,4 +71,4 @@ export default withTracker(({ match }) => {
     doc: Stuffs.findOne(documentId),
     ready: subscription.ready(),
   };
-})(EditStuff);
+})(EditItem);
