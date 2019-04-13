@@ -1,0 +1,97 @@
+:root {
+  --mainColor: #FBF3EB;
+}
+
+.ui.borderless.topmenu.menu {
+  background-color: #f5f5f5;
+  box-shadow: none;
+  border: none;
+}
+.ui.borderless.middlemenu.menu{
+  box-shadow: none;
+  border: none;
+}
+
+.black-background {
+  background-color: black;
+  color: whitesmoke;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+.navMenu {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.landing.banner {
+  background: url('images/UH_Liliuokalani_Center.JPG') no-repeat center center fixed;
+  background-size: cover;
+  height: 400px;
+  opacity: .7;
+}
+
+.bannerText {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 4.5em;
+  text-shadow: 2px 2px whitesmoke;
+  color: black;
+}
+
+.landingDescText {
+  font-size: 1.5em;
+}
+
+.landing.description {
+  padding-top: 20px;
+  padding-bottom: 50px;
+  background: var(--mainColor);
+}
+
+.messagebgpage {
+  background-color: var(--mainColor);
+  padding: 15px 15px 40px 15px;
+  margin-bottom: 0px;
+  box-shadow:  0px 2px 4px 1px grey;
+}
+
+.profile.desc.box {
+  background-color: var(--mainColor);
+}
+
+.notifAdminBox {
+  background-color: var(--mainColor);
+  padding: 15px 15px 40px 15px;
+  margin-bottom: 0px;
+  box-shadow:  0px 2px 4px 1px grey;
+}
+
+.userLandingBanner {
+  background: url(images/UH_Liliuokalani_Center_Cropped.JPG) no-repeat center center fixed; /*Placeholder image*/
+  background-size: cover;
+  height: 250px;
+  opacity: .7;
+}
+
+.userNavMenu {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 100px;
+}
+
+.userBannerText {
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 4.5em;
+  text-shadow: 2px 2px whitesmoke;
+  color: black;
+}
+
+.gettingStarted {
+  font-family: 'sans-serif';
+  font-weight: bold;
+  font-size: 2.5em;
+  color: black;
+  text-shadow: none;
+}
