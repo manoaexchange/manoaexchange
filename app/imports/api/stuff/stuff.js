@@ -11,12 +11,12 @@ const StuffSchema = new SimpleSchema({
   quantity: Number,
   description: String,
   image: String,
-  owner: String,
   condition: {
     type: String,
     allowedValues: ['excellent', 'good', 'fair', 'poor'],
     defaultValue: 'good',
   },
+  owner: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

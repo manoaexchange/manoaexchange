@@ -5,9 +5,9 @@
   ],
 
   "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+    { "item": "Basket", "quantity": 3, "condition": "excellent","description": "nice", "image": "placeholder", "owner": "john@foo.com" },
+    { "item": "Bicycle", "quantity": 2, "condition": "excellent","description": "nice", "image": "placeholder", "owner": "john@foo.com"},
+    { "item": "Banana", "quantity": 2, "condition": "excellent","description": "nice", "image": "placeholder", "owner": "admin@foo.com" },
+    { "item": "Boogie Board", "quantity": 2, "condition": "excellent","description": "nice", "image": "placeholder","owner": "admin@foo.com" }
   ]
 }
