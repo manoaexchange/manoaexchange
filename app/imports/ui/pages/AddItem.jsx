@@ -3,6 +3,7 @@ import { Stuffs, StuffSchema } from '/imports/api/stuff/stuff';
 import { Grid, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
+import LongTextField from 'uniforms-semantic/LongTextField'
 import NumField from 'uniforms-semantic/NumField';
 import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
@@ -12,7 +13,7 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 
 /** Renders the Page for adding a document. */
-class AddStuff extends React.Component {
+class AddItem extends React.Component {
 
   /** Bind 'this' so that a ref to the Form can be saved in formRef and communicated between render() and submit(). */
   constructor(props) {
@@ -34,9 +35,9 @@ class AddStuff extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { name, quantity, condition } = data;
+    const { item, quantity, condition, image, description } = data;
     const owner = Meteor.user().username;
-    Stuffs.insert({ name, quantity, condition, owner }, this.insertCallback);
+    Stuffs.insert({ item, quantity, condition, image, description, owner }, this.insertCallback);
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -44,10 +45,12 @@ class AddStuff extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Add Stuff</Header>
+            <Header as="h2" textAlign="center">List an item for sale</Header>
             <AutoForm ref={(ref) => { this.formRef = ref; }} schema={StuffSchema} onSubmit={this.submit}>
               <Segment>
-                <TextField name='name'/>
+                <TextField name='item'/>
+                <LongTextField name='description'/>
+                <TextField name='image'/>
                 <NumField name='quantity' decimal={false}/>
                 <SelectField name='condition'/>
                 <SubmitField value='Submit'/>
@@ -61,4 +64,4 @@ class AddStuff extends React.Component {
   }
 }
 
-export default AddStuff;
+export default AddItem;
