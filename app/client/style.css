@@ -112,3 +112,7 @@
 .CategoriesPagesBox {
   background-color: var(--mainColor);
 }
+
+.listSearchBox {
+  padding: 20px 30px;
+}
