@@ -7,7 +7,7 @@ export default class ProfileProductsOffered extends React.Component {
     return (
         <div>
           <h2>Products On Sale</h2>
-          <Card.Group>
+          <Card.Group centered>
             <Product/>
           </Card.Group>
         </div>

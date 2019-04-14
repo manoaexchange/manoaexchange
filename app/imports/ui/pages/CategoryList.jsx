@@ -1,9 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Card, Image, Button } from 'semantic-ui-react';
+import { Container, Header, Loader, Card, Dropdown, Grid, Image, Button } from 'semantic-ui-react';
 import { Stuffs } from '/imports/api/stuff/stuff';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import Product from '/imports/ui/components/Product';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class CategoryList extends React.Component {
@@ -19,19 +20,24 @@ class CategoryList extends React.Component {
         <Container>
           <Header as="h2" textAlign="center">CategoryNameHere</Header>
           <div className='CategoriesPagesBox listSearchBox fauxBoxShadow'>
+            <Grid>
+              <Grid.Column floated='right' width={2}>
+                <Dropdown text='Sort By...'>
+                  <Dropdown.Menu>
+                    <Dropdown.Item>Newest First</Dropdown.Item>
+                    <Dropdown.Item>Oldest First</Dropdown.Item>
+                    <Dropdown.Item>A-Z</Dropdown.Item>
+                    <Dropdown.Item>Z-A</Dropdown.Item>
+                    <Dropdown.Item>Owner Ascending</Dropdown.Item>
+                    <Dropdown.Item>Owner Descending</Dropdown.Item>
+                    <Dropdown.Item></Dropdown.Item>
+                  </Dropdown.Menu>
+                </Dropdown>
+              </Grid.Column>
+            </Grid>
             <Card.Group centered>
-              <Card>
-                <Card.Content>
-                  <Card.Header>Desk Lamp</Card.Header>
-                  <Image size='small'
-                         src='https://www.publicdomainpictures.net/pictures/200000/nahled/desk-lamp-1475958733bLG.jpg'/>
-                </Card.Content>
-                <Card.Content extra>
-                  <Button basic color='black'>
-                    See Product
-                  </Button>
-                </Card.Content>
-              </Card>
+              <Product/>
+              <Product/>
             </Card.Group>
           </div>
         </Container>
