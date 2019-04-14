@@ -19,6 +19,7 @@ import Signout from '../pages/Signout';
 import Profilepage from '../pages/Profilepage';
 import Message from '../pages/Messagepage';
 import NotifyAdmin from '../pages/NotifyAdmin';
+import Categories from '../pages/Categories';
 
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -32,6 +33,7 @@ class App extends React.Component {
               <Route exact path="/" component={Landing}/>
               <Route path="/signin" component={Signin}/>
               <Route path="/signup" component={Signup}/>
+              <Route path="/categories" component={Categories}/>
               <ProtectedRoute path="/profile" component={Profilepage}/>
               <ProtectedRoute path="/message" component={Message}/>
               <ProtectedRoute path="/home" component={UserLanding}/>

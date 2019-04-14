@@ -41,7 +41,7 @@ class Notify extends React.Component {
   render() {
     return (
         <Container className='notifyAdmin'>
-          <div className='notifAdminBox'>
+          <div className='notifAdminBox fauxBoxShadow'>
             <h1>Report an Issue</h1>
             <Form>
               <Form.Group widths='equal'>

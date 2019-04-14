@@ -13,7 +13,7 @@ class Messagepage extends React.Component {
             <Grid centered columns={3}>
               <Grid.Row centered>
                 <Grid.Column>
-                  <div className='messagebgpage'>
+                  <div className='messagebgpage fauxBoxShadow'>
                     <MessageHead/>
                     <Divider hidden/>
                     <MessageFeed/>
