@@ -21,6 +21,7 @@ import Message from '../pages/Messagepage';
 import NotifyAdmin from '../pages/NotifyAdmin';
 import Categories from '../pages/Categories';
 import CategoryList from '../pages/CategoryList';
+import SearchPage from '../pages/SearchPage';
 
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
@@ -36,6 +37,7 @@ class App extends React.Component {
               <Route path="/signup" component={Signup}/>
               <Route path="/categories" component={Categories}/>
               <Route path="/categoryList" component={CategoryList}/>
+              <Route path="/search" component={SearchPage}/>
               <ProtectedRoute path="/profile" component={Profilepage}/>
               <ProtectedRoute path="/message" component={Message}/>
               <ProtectedRoute path="/home" component={UserLanding}/>
