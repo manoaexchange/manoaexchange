@@ -15,6 +15,7 @@ const ItemSchema = new SimpleSchema({
     allowedValues: ['excellent', 'good', 'fair', 'poor'],
     defaultValue: 'good',
   },
+  flagged: Boolean,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */

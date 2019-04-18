@@ -11,10 +11,11 @@ const MessagesSchema = new SimpleSchema({
   receiverName: String,
   messageTime: String,
   messageBody: String,
+  flagged: Boolean,
 });
 
 /** Attach this schema to the collection. */
-Messahes.attachSchema(MessagesSchema);
+Messages.attachSchema(MessagesSchema);
 
 /** Make the collection and schema available to other code. */
 export { Messages, MessagesSchema };
