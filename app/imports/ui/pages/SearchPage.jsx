@@ -17,11 +17,22 @@ class SearchPage extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const conditions = [
+      { key: 'all', text: 'all', value: 'all' },
+      { key: 'new', text: 'new', value: 'new' },
+      { key: 'good', text: 'good', value: 'good' },
+      { key: 'bad', text: 'bad', value: 'bad' },
+    ];
     return (
         <Container>
           <Header as="h2" textAlign="center">Search Results</Header>
           <Menu>
-            <Menu.Item ><Input style={{ width: '650px' }} icon='search' placeholder='Search'/></Menu.Item>
+            <Menu.Item>
+              <Input
+                  style={{ width: '650px' }} icon='search' placeholder='Search'
+                  label={<Dropdown defaultValue='all' options={conditions}/>}
+                  labelPosition='left'/>
+            </Menu.Item>
             <Menu.Item><Button>Clear</Button></Menu.Item>
             <Dropdown item text='Sort By...'>
               <Dropdown.Menu>
