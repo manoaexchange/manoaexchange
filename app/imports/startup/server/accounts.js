@@ -8,7 +8,6 @@ function createUser(name, email, password, role) {
   console.log(`  Creating user ${email}.`);
   const userID = Accounts.createUser({
     name: name,
-    username: email,
     email: email,
     password: password,
     flagged: Boolean,
