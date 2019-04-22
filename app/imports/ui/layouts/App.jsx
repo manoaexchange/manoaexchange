@@ -12,6 +12,7 @@ import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
 import AddStuff from '../pages/AddStuff';
 import EditStuff from '../pages/EditStuff';
+import EditProfile from '../pages/EditProfilepage';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
 import Signup from '../pages/Signup';
@@ -39,6 +40,7 @@ class App extends React.Component {
               <Route path="/categoryList" component={CategoryList}/>
               <Route path="/search" component={SearchPage}/>
               <ProtectedRoute path="/profile" component={Profilepage}/>
+              <ProtectedRoute path="/editprofile" component={EditProfile}/>
               <ProtectedRoute path="/message" component={Message}/>
               <ProtectedRoute path="/home" component={UserLanding}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
