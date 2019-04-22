@@ -9,10 +9,29 @@ import PropTypes from 'prop-types';
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListStuff extends React.Component {
 
-  /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
-  render() {
-    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+  constructor(props) {
+    super(props);
+    this.submit = this.submit.bind(this);
+    this.insertCallback = this.insertCallback.bind(this);
+    this.formRef = null;
   }
+
+  insertCallback(error) {
+    if (error) {
+      Bert.alert({ type: 'danger', message: `Add failed: ${error.message}` });
+    } else {
+      Bert.alert({ type: 'success', message: 'Add succeeded' });
+      this.formRef.reset();
+    }
+  }
+
+  submit(data) {
+    const { name, quantity, condition } = data;
+    const owner = Meteor.user().username;
+    Items.insert({ name, quantity, owner, condition, Boolean: false }, this.insertCallback);
+  }
+
+
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
