@@ -1,13 +1,18 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    { "name": "admin", "email": "admin@foo.com", "password": "changeme", "flagged": false, "role": "admin" },
+    { "name": "john foo","email": "john@foo.com", "password": "changeme", "flagged": false }
   ],
-
   "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
-  ]
+    {"name":  "Straw Basket", "description":  "A Basket", "owner":  "john@foo.com", "image":  "no image atm", "condition":  "good",
+      "flagged": false }
+  ],
+  "defaultMessages": [
+    {"senderName": "john@foo.com", "receiverName": "shawn@foo.com", "messageTime": "3:04 PM", "messageBody": "Generic Temp Message", "flagged": false}
+  ],
+  "galaxy.meteor.com": {
+    "env": {
+      "MONGO_URL": "mongodb+srv://test-user_123:abcde12345@clustertesting-r6toc.mongodb.net/test?retryWrites=true"
+    }
+  }
 }
