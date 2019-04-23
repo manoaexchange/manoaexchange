@@ -10,9 +10,9 @@ function addData(data) {
 
 /** Initialize the collection if empty. */
 if (Items.find().count() === 0) {
-  if (Meteor.settings.defaultItems) {
-    console.log('Creating default Items.');
-    Meteor.settings.defaultItems.map(data => addData(data));
+  if (Meteor.settings.defaultData) {
+    console.log('Creating default data.');
+    Meteor.settings.defaultData.map(data => addData(data));
   }
 }
 
