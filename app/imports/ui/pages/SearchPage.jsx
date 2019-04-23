@@ -19,9 +19,10 @@ class SearchPage extends React.Component {
   renderPage() {
     const conditions = [
       { key: 'all', text: 'all', value: 'all' },
-      { key: 'new', text: 'new', value: 'new' },
+      { key: 'excellent', text: 'excellent', value: 'excellent' },
       { key: 'good', text: 'good', value: 'good' },
-      { key: 'bad', text: 'bad', value: 'bad' },
+      { key: 'fair', text: 'fair', value: 'fair' },
+      { key: 'poor', text: 'poor', value: 'poor' },
     ];
     return (
         <Container>

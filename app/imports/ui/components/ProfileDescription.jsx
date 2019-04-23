@@ -1,8 +1,11 @@
 import React from 'react';
 import { Image, Button } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
+import { Bert } from 'meteor/themeteorchef:bert';
+import PropTypes from 'prop-types';
 
 export default class ProfileDescription extends React.Component {
+
   render() {
     return (
         <div>
@@ -20,3 +23,9 @@ export default class ProfileDescription extends React.Component {
     );
   }
 }
+
+/** Require a document to be passed to this component. */
+ProfileDescription.propTypes = {
+  contact: PropTypes.object.isRequired,
+  notes: PropTypes.array.isRequired,
+};

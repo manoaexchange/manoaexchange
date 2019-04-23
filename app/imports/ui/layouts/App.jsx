@@ -19,6 +19,7 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import Profilepage from '../pages/Profilepage';
 import Message from '../pages/Messagepage';
+import MessageList from '../pages/MessageList';
 import NotifyAdmin from '../pages/NotifyAdmin';
 import Categories from '../pages/Categories';
 import CategoryList from '../pages/CategoryList';
@@ -42,6 +43,7 @@ class App extends React.Component {
               <ProtectedRoute path="/profile" component={Profilepage}/>
               <ProtectedRoute path="/editprofile" component={EditProfile}/>
               <ProtectedRoute path="/message" component={Message}/>
+              <ProtectedRoute path="/messagelist" component={MessageList}/>
               <ProtectedRoute path="/home" component={UserLanding}/>
               <ProtectedRoute path="/list" component={ListStuff}/>
               <ProtectedRoute path="/add" component={AddStuff}/>

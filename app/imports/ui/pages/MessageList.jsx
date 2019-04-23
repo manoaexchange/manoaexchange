@@ -1,13 +1,13 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Card, Dropdown, Grid } from 'semantic-ui-react';
+import { Container, Header, Loader, Card, Image, Button } from 'semantic-ui-react';
 import { Stuffs } from '/imports/api/stuff/stuff';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import Product from '/imports/ui/components/Product';
+import { NavLink } from 'react-router-dom';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
-class CategoryList extends React.Component {
+class MessageList extends React.Component {
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -18,25 +18,21 @@ class CategoryList extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center">CategoryNameHere</Header>
+          <Header as="h2" textAlign="center">Messages</Header>
           <div className='CategoriesPagesBox listSearchBox fauxBoxShadow'>
-            <Grid>
-              <Grid.Column floated='right' width={2}>
-                <Dropdown text='Sort By...'>
-                  <Dropdown.Menu>
-                    <Dropdown.Item>Newest First</Dropdown.Item>
-                    <Dropdown.Item>Oldest First</Dropdown.Item>
-                    <Dropdown.Item>A-Z</Dropdown.Item>
-                    <Dropdown.Item>Z-A</Dropdown.Item>
-                    <Dropdown.Item>Owner Ascending</Dropdown.Item>
-                    <Dropdown.Item>Owner Descending</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Grid.Column>
-            </Grid>
             <Card.Group centered>
-              <Product/>
-              <Product/>
+              <Card>
+                <Card.Content>
+                  <Image floated='right' size='mini' src='/images/piniolkimg.png'/>
+                  <Card.Header>Katherine Piniol</Card.Header>
+                  <Card.Meta>Tuesday 9:54 am</Card.Meta>
+                </Card.Content>
+                <Card.Content extra>
+                  <Button basic fluid color='teal' as={NavLink} activeClassName="" exact to="/message">
+                    Open
+                  </Button>
+                </Card.Content>
+              </Card>
             </Card.Group>
           </div>
         </Container>
@@ -45,17 +41,17 @@ class CategoryList extends React.Component {
 }
 
 /** Require an array of Stuff documents in the props. */
-CategoryList.propTypes = {
+MessageList.propTypes = {
   stuffs: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
-  // Get access to Items documents.
+  // Get access to Stuff documents.
   const subscription = Meteor.subscribe('Stuff');
   return {
     stuffs: Stuffs.find({}).fetch(),
     ready: subscription.ready(),
   };
-})(CategoryList);
+})(MessageList);
