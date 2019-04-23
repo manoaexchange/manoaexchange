@@ -10,9 +10,9 @@ function addData(data) {
 
 /** Initialize the collection if empty. */
 if (Messages.find().count() === 0) {
-  if (Meteor.settings.defaultData) {
+  if (Meteor.settings.defaultMessages) {
     console.log('Creating default data.');
-    Meteor.settings.defaultData.map(data => addData(data));
+    Meteor.settings.defaultMessages.map(data => addData(data));
   }
 }
 

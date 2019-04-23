@@ -3,7 +3,7 @@
     { "name": "admin", "email": "admin@foo.com", "password": "changeme", "flagged": false, "role": "admin" },
     { "name": "john foo","email": "john@foo.com", "password": "changeme", "flagged": false }
   ],
-  "defaultData": [
+  "defaultItems": [
     {"name":  "Straw Basket", "description":  "A Basket", "owner":  "john@foo.com", "image":  "no image atm", "condition":  "good",
       "flagged": false }
   ],
