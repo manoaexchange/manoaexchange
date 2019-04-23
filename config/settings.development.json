@@ -1,7 +1,7 @@
 {
   "defaultAccounts": [
-    { "name": "admin", "email": "admin@foo.com", "password": "changeme", "flagged": false, "role": "admin" },
-    { "name": "john foo","email": "john@foo.com", "password": "changeme", "flagged": false }
+    { "email": "admin@foo.com", "password": "changeme", "profile": {"name": "admin", "flagged": false}, "role": "admin" },
+    { "email": "john@foo.com", "password": "changeme", "profile": {"name": "john foo", "flagged": false} }
   ],
   "defaultItems": [
     {"name":  "Straw Basket", "description":  "A Basket", "owner":  "john@foo.com", "image":  "no image atm", "condition":  "good",
