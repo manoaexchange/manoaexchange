@@ -1,8 +1,9 @@
 import React from 'react';
-import { Stuffs, StuffSchema } from '/imports/api/stuff/stuff';
+import { Items, ItemSchema } from '/imports/api/stuff/items';
 import { Grid, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
+import LongTextField from 'uniforms-semantic/LongTextField';
 import NumField from 'uniforms-semantic/NumField';
 import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
@@ -34,9 +35,9 @@ class AddStuff extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { name, quantity, condition } = data;
+    const { item, quantity, condition, image, description } = data;
     const owner = Meteor.user().username;
-    Stuffs.insert({ name, quantity, condition, owner }, this.insertCallback);
+    Items.insert({ item, quantity, condition, image, description, owner }, this.insertCallback);
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -44,10 +45,12 @@ class AddStuff extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center">Add Stuff</Header>
-            <AutoForm ref={(ref) => { this.formRef = ref; }} schema={StuffSchema} onSubmit={this.submit}>
+            <Header as="h2" textAlign="center">List an item for sale</Header>
+            <AutoForm ref={(ref) => { this.formRef = ref; }} schema={ItemSchema} onSubmit={this.submit}>
               <Segment>
-                <TextField name='name'/>
+                <TextField name='item'/>
+                <LongTextField name='description'/>
+                <TextField name='image'/>
                 <NumField name='quantity' decimal={false}/>
                 <SelectField name='condition'/>
                 <SubmitField value='Submit'/>

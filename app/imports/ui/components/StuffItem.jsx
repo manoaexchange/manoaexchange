@@ -8,11 +8,13 @@ class StuffItem extends React.Component {
   render() {
     return (
         <Table.Row>
-          <Table.Cell>{this.props.stuff.name}</Table.Cell>
-          <Table.Cell>{this.props.stuff.quantity}</Table.Cell>
-          <Table.Cell>{this.props.stuff.condition}</Table.Cell>
+          <Table.Cell>{this.props.item.item}</Table.Cell>
+          <Table.Cell>{this.props.item.quantity}</Table.Cell>
+          <Table.Cell>{this.props.item.description}</Table.Cell>
+          <Table.Cell>{this.props.item.image}</Table.Cell>
+          <Table.Cell>{this.props.item.condition}</Table.Cell>
           <Table.Cell>
-            <Link to={`/edit/${this.props.stuff._id}`}>Edit</Link>
+            <Link to={`/edit/${this.props.item._id}`}>Edit</Link>
           </Table.Cell>
         </Table.Row>
     );
@@ -21,7 +23,7 @@ class StuffItem extends React.Component {
 
 /** Require a document to be passed to this component. */
 StuffItem.propTypes = {
-  stuff: PropTypes.object.isRequired,
+  item: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
