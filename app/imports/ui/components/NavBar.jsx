@@ -13,12 +13,18 @@ class NavBar extends React.Component {
     return (
         <Menu style={menuStyle} attached="top" borderless>
           <Container>
-            <Menu.Item icon='home' as={NavLink} activeClassName="" exact to="/home"></Menu.Item>
+            {this.props.currentUser === '' ? (
+                <Menu.Item icon='home' as={NavLink} activeClassName="" exact to="/"></Menu.Item>
+            ) : (
+
+                <Menu.Item icon='home' as={NavLink} activeClassName="" exact to="/home"></Menu.Item>
+            )}
             <Menu.Item><Input style={{ width: '650px' }} icon='search' placeholder='Search'/></Menu.Item>
-            <Menu.Item position='right' as={NavLink} activeClassName="active" exact to="/CATEGORIES"
+            <Menu.Item position='right' as={NavLink} activeClassName="active" exact to="/categories"
                        key='add'>Categories</Menu.Item>
             {this.props.currentUser ? (
-                [ <Menu.Item as={NavLink} activeClassName="active" exact to="/message" key='add'>Messages</Menu.Item>,
+                [<Menu.Item as={NavLink} activeClassName="active" exact to="/messagelist"
+                            key='add'>Messages</Menu.Item>,
                   <Menu.Item as={NavLink} activeClassName="active" exact to="/profile" key='list'>Profile</Menu.Item>]
             ) : ''}
             {Roles.userIsInRole(Meteor.userId(), 'admin') ? (
