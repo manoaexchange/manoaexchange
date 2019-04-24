@@ -40,49 +40,47 @@ class Notify extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
     return (
-        <div className='generalPageMargin'>
-          <Container className='notifyAdmin'>
-            <div className='notifAdminBox fauxBoxShadow'>
-              <h1>Report an Issue</h1>
-              <Form>
-                <Form.Group widths='equal'>
-                  <Form.Field
-                      id='form-input-control-first-name'
-                      control={Input}
-                      label='First name'
-                      placeholder='First name'
-                  />
-                  <Form.Field
-                      id='form-input-control-last-name'
-                      control={Input}
-                      label='Last name'
-                      placeholder='Last name'
-                  />
-                  <Form.Field
-                      control={Select}
-                      options={issueOptions}
-                      label={{ children: 'Issue', htmlFor: 'form-select-control-gender' }}
-                      placeholder='Select'
-                      search
-                      searchInput={{ id: 'form-select-control-gender' }}
-                  />
-                </Form.Group>
+        <Container className='notifyAdmin'>
+          <div className='notifAdminBox'>
+            <h1>Report an Issue</h1>
+            <Form>
+              <Form.Group widths='equal'>
                 <Form.Field
-                    id='form-textarea-control-opinion'
-                    control={TextArea}
-                    label='Comments'
-                    placeholder='Any other issues here'
+                    id='form-input-control-first-name'
+                    control={Input}
+                    label='First name'
+                    placeholder='First name'
                 />
                 <Form.Field
-                    id='form-button-control-public'
-                    control={Button}
-                    content='Confirm'
-                    label='Submit'
+                    id='form-input-control-last-name'
+                    control={Input}
+                    label='Last name'
+                    placeholder='Last name'
                 />
-              </Form>
-            </div>
-          </Container>
-        </div>
+                <Form.Field
+                    control={Select}
+                    options={issueOptions}
+                    label={{ children: 'Issue', htmlFor: 'form-select-control-gender' }}
+                    placeholder='Select'
+                    search
+                    searchInput={{ id: 'form-select-control-gender' }}
+                />
+              </Form.Group>
+              <Form.Field
+                  id='form-textarea-control-opinion'
+                  control={TextArea}
+                  label='Comments'
+                  placeholder='Any other issues here'
+              />
+              <Form.Field
+                  id='form-button-control-public'
+                  control={Button}
+                  content='Confirm'
+                  label='Submit'
+              />
+            </Form>
+          </div>
+        </Container>
     );
   }
 }
