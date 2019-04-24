@@ -20,7 +20,7 @@ if (Messages.find().count() === 0) {
 Meteor.publish('Messages', function publish() {
   if (this.userId) {
     const username = Meteor.users.findOne(this.userId).email;
-    return Messages.find({ receiverName: username });
+    return (Messages.find({ receiverName: username }) && Messages.find({ senderName: username }));
   }
   return this.ready();
 });
