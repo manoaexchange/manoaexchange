@@ -8,8 +8,9 @@ const Items = new Mongo.Collection('Items');
 /** Create a schema to constrain the structure of documents associated with this collection. */
 const ItemSchema = new SimpleSchema({
   name: String,
-  quantity: Number,
+  description: String,
   owner: String,
+  image: String,
   condition: {
     type: String,
     allowedValues: ['excellent', 'good', 'fair', 'poor'],
