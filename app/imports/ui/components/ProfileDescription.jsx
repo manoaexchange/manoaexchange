@@ -1,11 +1,8 @@
 import React from 'react';
 import { Image, Button } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
-import { Bert } from 'meteor/themeteorchef:bert';
-import PropTypes from 'prop-types';
 
 export default class ProfileDescription extends React.Component {
-
   render() {
     return (
         <div>
@@ -16,15 +13,10 @@ export default class ProfileDescription extends React.Component {
               Report
             </Button>
             <p>Email: sample@sample.com</p>
+            <p>Phone: (808)123-4567</p>
           </p>
-          <Button floated='right' as={NavLink} activeClassName="" exact to="/editprofile">Edit Profile</Button>
+          <Button floated='right' as={NavLink} activeClassName="" exact to="/EDITPROFILE">Edit Profile</Button>
         </div>
     );
   }
 }
-
-/** Require a document to be passed to this component. */
-ProfileDescription.propTypes = {
-  contact: PropTypes.object.isRequired,
-  notes: PropTypes.array.isRequired,
-};

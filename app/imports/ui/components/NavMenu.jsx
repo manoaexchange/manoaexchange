@@ -13,7 +13,7 @@ export default class NavMenu extends React.Component {
               <Menu.Item>
                 <Input style={{ width: '650px' }} icon='search' placeholder='Search'/>
               </Menu.Item>
-              <Menu.Item as={NavLink} activeClassName="" exact to="/categories">Categories</Menu.Item>
+              <Menu.Item as={NavLink} activeClassName="" exact to="/CATEGORIES">Categories</Menu.Item>
               <Menu.Item position='right' as={NavLink} activeClassName="" exact to="/signin">Sign In</Menu.Item>
             </Container>
           </Menu>

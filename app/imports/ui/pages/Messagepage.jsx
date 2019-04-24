@@ -8,12 +8,12 @@ class Messagepage extends React.Component {
 
   render() {
     return (
-        <div className='generalPageMargin'>
+        <div>
           <Container>
             <Grid centered columns={3}>
               <Grid.Row centered>
                 <Grid.Column>
-                  <div className='messagebgpage fauxBoxShadow'>
+                  <div className='messagebgpage'>
                     <MessageHead/>
                     <Divider hidden/>
                     <MessageFeed/>

@@ -16,13 +16,7 @@ const StuffSchema = new SimpleSchema({
     allowedValues: ['excellent', 'good', 'fair', 'poor'],
     defaultValue: 'good',
   },
-<<<<<<< HEAD
   owner: String,
-=======
-  email: String,
-  phone: String,
-  imageurl: String,
->>>>>>> issue-14
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
