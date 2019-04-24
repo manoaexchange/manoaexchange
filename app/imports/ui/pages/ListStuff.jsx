@@ -31,7 +31,7 @@ class ListItem extends React.Component {
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {this.props.items.map((item) => <StuffItem key={item._id} item={item} />)}
+              {this.props.items.map((item) => <StuffItem key={item._id} items={item} />)}
             </Table.Body>
           </Table>
         </Container>
@@ -48,7 +48,7 @@ ListItem.propTypes = {
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Stuff documents.
-  const subscription = Meteor.subscribe('Item');
+  const subscription = Meteor.subscribe('Items');
   return {
     items: Items.find({}).fetch(),
     ready: subscription.ready(),
