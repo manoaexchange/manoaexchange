@@ -25,7 +25,7 @@ export default class Signup extends React.Component {
   /** Handle Signup submission using Meteor's account mechanism. */
   handleSubmit() {
     const { email, password } = this.state;
-    Accounts.createUser({name , email, password, Boolean: false }, (err) => {
+    Accounts.createUser({ email, username: email, password }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
       } else {

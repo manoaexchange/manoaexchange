@@ -1,18 +1,7 @@
 {
-  "defaultAccounts": [
-    { "name": "admin", "email": "admin@foo.com", "password": "changeme", "flagged": false, "role": "admin" },
-    { "name": "john foo","email": "john@foo.com", "password": "changeme", "flagged": false }
-  ],
-  "defaultItems": [
-    {"name":  "Straw Basket", "description":  "A Basket", "owner":  "john@foo.com", "image":  "no image atm", "condition":  "good",
-      "flagged": false }
-  ],
-  "defaultMessages": [
-    {"senderName": "john@foo.com", "receiverName": "shawn@foo.com", "messageTime": "3:04 PM", "messageBody": "Generic Temp Message", "flagged": false}
-  ],
   "galaxy.meteor.com": {
     "env": {
-      "MONGO_URL": "mongodb+srv://test-user_123:abcde12345@clustertesting-r6toc.mongodb.net/test?retryWrites=true"
+      "MONGO_URL": "mongodb+srv://piniolk:TLWnK8QCviBgs653@cluster0-1ptc7.mongodb.net/test?retryWrites=true"
     }
   }
 }
