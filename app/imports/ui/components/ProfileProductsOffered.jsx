@@ -14,3 +14,4 @@ export default class ProfileProductsOffered extends React.Component {
     );
   }
 }
+

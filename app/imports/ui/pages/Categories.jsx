@@ -8,7 +8,7 @@ import { Meteor } from 'meteor/meteor';
 
 class Categories extends React.Component {
   render() {
-    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting Data</Loader>;
   }
 
   renderPage() {

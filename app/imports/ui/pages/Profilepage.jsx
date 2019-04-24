@@ -14,7 +14,7 @@ class Profilepage extends React.Component {
 
   renderPage() {
     return (
-        <div>
+        <div className='generalPageMargin'>
           <Grid centered columns={3}>
             <Segment className='profile desc box'>
               <Container>

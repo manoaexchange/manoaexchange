@@ -8,7 +8,7 @@ class Messagepage extends React.Component {
 
   render() {
     return (
-        <div>
+        <div className='generalPageMargin'>
           <Container>
             <Grid centered columns={3}>
               <Grid.Row centered>

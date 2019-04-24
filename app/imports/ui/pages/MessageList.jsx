@@ -17,25 +17,27 @@ class MessageList extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Container>
-          <Header as="h2" textAlign="center">Messages</Header>
-          <div className='CategoriesPagesBox listSearchBox fauxBoxShadow'>
-            <Card.Group centered>
-              <Card>
-                <Card.Content>
-                  <Image floated='right' size='mini' src='/images/piniolkimg.png'/>
-                  <Card.Header>Katherine Piniol</Card.Header>
-                  <Card.Meta>Tuesday 9:54 am</Card.Meta>
-                </Card.Content>
-                <Card.Content extra>
-                  <Button basic fluid color='teal' as={NavLink} activeClassName="" exact to="/message">
-                    Open
-                  </Button>
-                </Card.Content>
-              </Card>
-            </Card.Group>
-          </div>
-        </Container>
+        <div className='generalPageMargin'>
+          <Container>
+            <Header as="h2" textAlign="center">Messages</Header>
+            <div className='CategoriesPagesBox listSearchBox fauxBoxShadow'>
+              <Card.Group centered>
+                <Card>
+                  <Card.Content>
+                    <Image floated='right' size='mini' src='/images/piniolkimg.png'/>
+                    <Card.Header>Katherine Piniol</Card.Header>
+                    <Card.Meta>Tuesday 9:54 am</Card.Meta>
+                  </Card.Content>
+                  <Card.Content extra>
+                    <Button basic fluid color='teal' as={NavLink} activeClassName="" exact to="/message">
+                      Open
+                    </Button>
+                  </Card.Content>
+                </Card>
+              </Card.Group>
+            </div>
+          </Container>
+        </div>
     );
   }
 }

@@ -1,13 +1,50 @@
 {
   "defaultAccounts": [
-    { "email": "admin@foo.com", "password": "changeme", "role": "admin" },
-    { "email": "john@foo.com", "password": "changeme" }
+    {
+      "email": "admin@foo.com",
+      "password": "changeme",
+      "profile": {
+        "name": "admin",
+        "flagged": false
+      },
+      "role": "admin"
+    },
+    {
+      "email": "john@foo.com",
+      "password": "changeme",
+      "profile": {
+        "name": "john foo",
+        "flagged": false
+      }
+    }
   ],
-
-  "defaultData": [
-    { "name": "Basket", "quantity": 3, "owner": "john@foo.com", "condition": "excellent" },
-    { "name": "Bicycle", "quantity": 2, "owner": "john@foo.com", "condition": "poor" },
-    { "name": "Banana", "quantity": 2, "owner": "admin@foo.com", "condition": "good" },
-    { "name": "Boogie Board", "quantity": 2, "owner": "admin@foo.com", "condition": "excellent" }
+  "defaultItems": [
+    {
+      "name": "Straw Basket",
+      "description": "A Basket",
+      "owner": "john@foo.com",
+      "image": "https://www.stock-free.org/images/Thanksgiving-Stock-Free-Image-08112015-image-170.jpg",
+      "condition": "good",
+      "category": "storage",
+      "flagged": false
+    },
+    {
+      "name": "Desk Lamp",
+      "description": "A Basket",
+      "owner": "john@foo.com",
+      "image": "https://www.publicdomainpictures.net/pictures/200000/nahled/desk-lamp-1475958733bLG.jpg",
+      "condition": "good",
+      "category": "Appliance",
+      "flagged": false
+    }
+  ],
+  "defaultMessages": [
+    {
+      "senderName": "john@foo.com",
+      "receiverName": "shawn@foo.com",
+      "messageTime": "3:04 PM",
+      "messageBody": "Generic Temp Message",
+      "flagged": false
+    }
   ]
 }

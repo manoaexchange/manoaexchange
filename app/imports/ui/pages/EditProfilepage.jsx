@@ -16,8 +16,8 @@ class EditProfilepage extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { name, imageurl, email, phone, _id } = data;
-    Stuffs.update(_id, { $set: { name, imageurl, email, phone } }, (error) => (error ?
+    const { name, imageurl, email, _id } = data;
+    Stuffs.update(_id, { $set: { name, imageurl, email } }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Update succeeded' })));
   }
@@ -30,23 +30,24 @@ class EditProfilepage extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
-        <Container>
-          <div className='fauxBoxShadow profile desc box'>
-            <Grid centered>
-              <Grid.Column>
-                <Header as="h2" textAlign="center">Edit Profile</Header>
-                <AutoForm schema={StuffSchema} onSubmit={this.submit} model={this.props.doc}>
-                  <TextField name='imageurl'/>
-                  <TextField name='email'/>
-                  <TextField name='phone'/>
-                  <SubmitField value='Submit'/>
-                  <ErrorsField/>
-                  <HiddenField name='owner'/>
-                </AutoForm>
-              </Grid.Column>
-            </Grid>
-          </div>
-        </Container>
+        <div className='generalPageMargin'>
+          <Container>
+            <div className='fauxBoxShadow profile desc box'>
+              <Grid centered>
+                <Grid.Column>
+                  <Header as="h2" textAlign="center">Edit Profile</Header>
+                  <AutoForm schema={StuffSchema} onSubmit={this.submit} model={this.props.doc}>
+                    <TextField name='imageurl'/>
+                    <TextField name='email'/>
+                    <SubmitField value='Submit'/>
+                    <ErrorsField/>
+                    <HiddenField name='owner'/>
+                  </AutoForm>
+                </Grid.Column>
+              </Grid>
+            </div>
+          </Container>
+        </div>
     );
   }
 }

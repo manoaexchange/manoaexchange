@@ -16,7 +16,6 @@ export default class ProfileDescription extends React.Component {
               Report
             </Button>
             <p>Email: sample@sample.com</p>
-            <p>Phone: (808)123-4567</p>
           </p>
           <Button floated='right' as={NavLink} activeClassName="" exact to="/editprofile">Edit Profile</Button>
         </div>
