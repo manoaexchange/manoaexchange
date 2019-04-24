@@ -1,7 +1,7 @@
 {
   "defaultAccounts": [
     {
-      "email": "admin@foo.com",
+      "username": "admin@foo.com",
       "password": "changeme",
       "profile": {
         "name": "admin",
@@ -10,7 +10,7 @@
       "role": "admin"
     },
     {
-      "email": "john@foo.com",
+      "username": "john@foo.com",
       "password": "changeme",
       "profile": {
         "name": "john foo",
@@ -23,18 +23,8 @@
       "name": "Straw Basket",
       "description": "A Basket",
       "owner": "john@foo.com",
-      "image": "https://www.stock-free.org/images/Thanksgiving-Stock-Free-Image-08112015-image-170.jpg",
+      "image": "no image atm",
       "condition": "good",
-      "category": "storage",
-      "flagged": false
-    },
-    {
-      "name": "Desk Lamp",
-      "description": "A Basket",
-      "owner": "john@foo.com",
-      "image": "https://www.publicdomainpictures.net/pictures/200000/nahled/desk-lamp-1475958733bLG.jpg",
-      "condition": "good",
-      "category": "Appliance",
       "flagged": false
     }
   ],
@@ -46,5 +36,10 @@
       "messageBody": "Generic Temp Message",
       "flagged": false
     }
-  ]
+  ],
+  "galaxy.meteor.com": {
+    "env": {
+      "MONGO_URL": "mongodb+srv://test-user_123:abcde12345@clustertesting-r6toc.mongodb.net/test?retryWrites=true"
+    }
+  }
 }
