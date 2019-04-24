@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Card, Image, Button } from 'semantic-ui-react';
-import { Messages } from '/imports/api/stuff/messages';
+import { Stuffs } from '/imports/api/stuff/stuff';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
@@ -44,16 +44,16 @@ class MessageList extends React.Component {
 
 /** Require an array of messages documents in the props. */
 MessageList.propTypes = {
-  messages: PropTypes.array.isRequired,
+  stuffs: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to messages documents.
-  const subscription = Meteor.subscribe('Messages');
+  const subscription = Meteor.subscribe('Stuff');
   return {
-    messages: Messages.find({}).fetch(),
+    stuffs: Stuffs.find({}).fetch(),
     ready: subscription.ready(),
   };
 })(MessageList);
