@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Grid, Segment, Form, Button } from 'semantic-ui-react';
-
+import PropTypes from 'prop-types';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 export default class MessageFeed extends React.Component {
@@ -69,3 +69,8 @@ export default class MessageFeed extends React.Component {
     );
   }
 }
+
+MessageFeed.propTypes = {
+  messages: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
+};

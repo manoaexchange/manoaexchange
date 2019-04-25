@@ -7,6 +7,7 @@ import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import { Profiles } from '/imports/api/profile/profile';
+import { Reports } from '/imports/api/reports/reports';
 
 class Profilepage extends React.Component {
   render() {
@@ -22,10 +23,6 @@ class Profilepage extends React.Component {
                 <div>
                   <h1>Profile Page</h1>
                   {this.props.profiles.map((profile, index) => <ProfileDescription key={index} profiles={profile} />)}
-                  <Button floated='right' as={NavLink} activeClassName=""
-                          exact to={`/editprofile/${this.props.profiles._id}`}>
-                    Edit Profile
-                  </Button>
                   <Divider inverted/>
                   <ProfileProductsOffered/>
                 </div>
@@ -40,6 +37,7 @@ class Profilepage extends React.Component {
 /** Require an array of Profiles documents in the props. */
 Profilepage.propTypes = {
   profiles: PropTypes.array.isRequired,
+  reports: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -47,8 +45,10 @@ Profilepage.propTypes = {
 export default withTracker(() => {
   // Get access to Profiles documents.
   const subscription = Meteor.subscribe('Profiles');
+  const subscription2 = Meteor.subscribe('Reports');
   return {
     profiles: Profiles.find({}).fetch(),
-    ready: subscription.ready(),
+    reports: Reports.find({}).fetch(),
+    ready: (subscription.ready() && subscription2.ready()),
   };
 })(Profilepage);

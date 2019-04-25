@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Button, Image, Divider } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 export default class MessageHead extends React.Component {
@@ -14,7 +15,7 @@ export default class MessageHead extends React.Component {
               <Button color='teal' as={NavLink} activeClassName="" exact to="/profile">
                 Profile
               </Button>
-              <Button color='red' as={NavLink} activeClassName="" exact to="/notify">
+              <Button color='red' as={NavLink} activeClassName="" exact to={`/notify/${this.props.messages.name}`}>
                 Report
               </Button>
             </div>
@@ -25,3 +26,8 @@ export default class MessageHead extends React.Component {
     );
   }
 }
+
+MessageHead.propTypes = {
+  messages: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
+};

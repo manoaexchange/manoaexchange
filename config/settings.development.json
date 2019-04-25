@@ -48,10 +48,10 @@
     {
       "owner": "john@foo.com",
       "senderName": "john@foo.com",
-      "name": "shawn@foo.com",
-      "receiverName": "shawn@foo.com",
-      "messageTime": "3:04 PM",
-      "messageBody": "Generic Temp Message",
+      "name": "sample@sample.com",
+      "receiverName": "sample@sample.com",
+      "messageTime": "Monday 12:32 pm",
+      "messageBody": "Hello, my name is Katherine Piniol, and I was interested in the lamp you had up for sale.",
       "flagged": false
     }
   ],
@@ -63,16 +63,24 @@
       "imageurl": "/images/piniolkimg.png"
     },
     {
-      "name": "John Doe",
-      "owner": "john@foo.com",
+      "name": "Christopher Na",
+      "owner": "admin@foo.com",
       "phone": "808-111-1234",
       "imageurl": "https://avatars0.githubusercontent.com/u/35389960?s=460&v=4"
     },
     {
-      "name": "Shawn Anthony",
-      "owner": "admin@foo.com",
+      "name": "John Doe",
+      "owner": "john@foo.com",
       "phone": "808-111-1234",
       "imageurl": "https://avatars2.githubusercontent.com/u/42788145?s=460&v=4"
+    }
+  ],
+  "defaultReports": [
+    {
+      "name": "John Doe",
+      "issue": "Inappropriate Behavior",
+      "owner": "john@foo.com",
+      "message": "This is a test report on a person John Smith."
     }
   ],
   "galaxy.meteor.com": {
