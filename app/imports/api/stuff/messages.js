@@ -14,7 +14,7 @@ const MessagesSchema = new SimpleSchema({
   messageTime: String,
   messageBody: String,
   flagged: Boolean,
-});
+}, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
 Messages.attachSchema(MessagesSchema);
