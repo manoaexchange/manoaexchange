@@ -1,8 +1,7 @@
 import React from 'react';
 import { Card, Image, Button } from 'semantic-ui-react';
-import { withRouter } from 'react-router-dom';
+import { NavLink, withRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { Items } from '/imports/api/stuff/items';
 
 class Product extends React.Component {
 
@@ -10,13 +9,14 @@ class Product extends React.Component {
     return (
         <Card >
           <Card.Content align='center'>
-            <Card.Header>Desk Lamp</Card.Header>
-            <Card.Meta>February 23, 2019</Card.Meta>
+            <Card.Header>{this.props.items.name}</Card.Header>
+            <Card.Meta>{this.props.items.created}</Card.Meta>
             <Image size='small'
-                   src='https://www.publicdomainpictures.net/pictures/200000/nahled/desk-lamp-1475958733bLG.jpg'/>
+                   src={this.props.items.image}/>
           </Card.Content>
           <Card.Content extra align='center'>
-            <Button basic color='black'>
+            <Button floated='right' as={NavLink} activeClassName="" fluid
+                    exact to={`/list/${this.props.items._id}`}>
               See Product
             </Button>
           </Card.Content>

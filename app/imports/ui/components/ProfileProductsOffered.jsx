@@ -2,7 +2,6 @@ import React from 'react';
 import { Card } from 'semantic-ui-react';
 import Product from '/imports/ui/components/Product';
 import PropTypes from 'prop-types';
-import ProfileDescription from './ProfileDescription';
 
 export default class ProfileProductsOffered extends React.Component {
   render() {
@@ -10,7 +9,7 @@ export default class ProfileProductsOffered extends React.Component {
         <div>
           <h2>Products On Sale</h2>
           <Card.Group centered>
-            <Product/>
+            {this.props.items.map((item, index) => <Product key={index} items={item} />)}
           </Card.Group>
         </div>
     );
@@ -18,7 +17,8 @@ export default class ProfileProductsOffered extends React.Component {
 }
 
 /** Require a document to be passed to this component. */
-ProfileDescription.propTypes = {
+ProfileProductsOffered.propTypes = {
   profiles: PropTypes.object.isRequired,
-  notes: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
+  ready: PropTypes.bool.isRequired,
 };

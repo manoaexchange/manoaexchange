@@ -1,6 +1,5 @@
 import React from 'react';
-import { Grid, Segment, Container, Divider, Loader, Button } from 'semantic-ui-react';
-import { NavLink } from 'react-router-dom';
+import { Grid, Segment, Container, Divider, Loader } from 'semantic-ui-react';
 import ProfileProductsOffered from '../components/ProfileProductsOffered';
 import ProfileDescription from '../components/ProfileDescription';
 import PropTypes from 'prop-types';
@@ -8,6 +7,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import { Profiles } from '/imports/api/profile/profile';
 import { Reports } from '/imports/api/reports/reports';
+import { Items } from '/imports/api/stuff/items';
 
 class Profilepage extends React.Component {
   render() {
@@ -24,7 +24,7 @@ class Profilepage extends React.Component {
                   <h1>Profile Page</h1>
                   {this.props.profiles.map((profile, index) => <ProfileDescription key={index} profiles={profile} />)}
                   <Divider inverted/>
-                  <ProfileProductsOffered/>
+                  <ProfileProductsOffered items={this.props.items}/>
                 </div>
               </Container>
             </Segment>
@@ -38,6 +38,7 @@ class Profilepage extends React.Component {
 Profilepage.propTypes = {
   profiles: PropTypes.array.isRequired,
   reports: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -46,9 +47,11 @@ export default withTracker(() => {
   // Get access to Profiles documents.
   const subscription = Meteor.subscribe('Profiles');
   const subscription2 = Meteor.subscribe('Reports');
+  const subscription3 = Meteor.subscribe('Items');
   return {
     profiles: Profiles.find({}).fetch(),
     reports: Reports.find({}).fetch(),
-    ready: (subscription.ready() && subscription2.ready()),
+    items: Items.find({}).fetch(),
+    ready: (subscription.ready() && subscription2.ready() && subscription3.ready()),
   };
 })(Profilepage);

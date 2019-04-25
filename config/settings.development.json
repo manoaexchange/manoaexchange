@@ -30,15 +30,29 @@
     {
       "name": "Straw Basket",
       "description": "A Basket",
-      "owner": "john@foo.com",
+      "created": "February 23, 2019 5:00pm",
+      "category": "Storage",
+      "owner": "sample@sample.com",
       "image": "https://www.stock-free.org/images/Thanksgiving-Stock-Free-Image-08112015-image-170.jpg",
       "condition": "good",
       "flagged": false
     },
     {
       "name": "Desk Lamp",
-      "description": "I'm graduating and no longer have a use for this. I'm planning on selling it for $20.",
+      "description": "Unwanted lamp",
+      "created": "April 20, 2019 3:00pm",
+      "category": "Appliance",
       "owner": "john@foo.com",
+      "image": "https://www.publicdomainpictures.net/pictures/200000/nahled/desk-lamp-1475958733bLG.jpg",
+      "condition": "good",
+      "flagged": false
+    },
+    {
+      "name": "Desk Lamp",
+      "description": "I'm graduating and no longer have a use for this. I'm planning on selling it for $20.",
+      "created": "March 20, 2019 3:00pm",
+      "category": "Appliance",
+      "owner": "admin@foo.com",
       "image": "https://www.publicdomainpictures.net/pictures/200000/nahled/desk-lamp-1475958733bLG.jpg",
       "condition": "good",
       "flagged": false
