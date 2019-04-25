@@ -1,13 +1,19 @@
 import React from 'react';
-import { Container, Divider, Grid } from 'semantic-ui-react';
+import { Container, Divider, Grid, Loader } from 'semantic-ui-react';
 import MessageFeed from '/imports/ui/components/MessageFeed';
 import MessageHead from '/imports/ui/components/MessageHead';
 import PropTypes from 'prop-types';
+import { withTracker } from 'meteor/react-meteor-data';
+import { Meteor } from 'meteor/meteor';
+import { Messages } from '/imports/api/stuff/messages';
 
 /** A simple static component to render some text for the landing page. */
 class Messagepage extends React.Component {
-
   render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+  }
+
+  renderPage() {
     return (
         <div className='generalPageMargin'>
           <Container>
