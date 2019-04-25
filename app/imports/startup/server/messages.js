@@ -1,6 +1,6 @@
 import { Meteor } from 'meteor/meteor';
 import { Roles } from 'meteor/alanning:roles';
-import { Messages } from '../../api/stuff/messages.js';
+import { Messages } from '../../api/stuff/messages';
 
 /** Initialize the database with a default data document. */
 function addData(data) {
@@ -19,8 +19,8 @@ if (Messages.find().count() === 0) {
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Messages', function publish() {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).emails;
-    return (Messages.find({ owner: username }) || Messages.find({ name: username }));
+    const username = Meteor.users.findOne(this.userId).username;
+    return Messages.find({ owner: username } || Messages.find({ name: username }));
   }
   return this.ready();
 });
