@@ -35,7 +35,7 @@ class EditItem extends React.Component {
     return (
         <Grid container centered>
           <Grid.Column>
-            <Header as="h2" textAlign="center" inverted>Edit Item</Header>
+            <Header as="h2" textAlign="center">Edit Item</Header>
             <AutoForm schema={ItemSchema} onSubmit={this.submit} model={this.props.doc}>
               <Segment>
                 <TextField name='item'/>
