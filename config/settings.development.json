@@ -47,6 +47,14 @@
       "flagged": false
     }
   ],
+  "defaultProfile": [
+    {
+      "name": "Katherine Piniol",
+      "owner": "sample@sample.com",
+      "phone": "808-123-4567",
+      "imageurl": "/images/piniolkimg.png"
+    }
+  ],
   "galaxy.meteor.com": {
     "env": {
       "MONGO_URL": "mongodb+srv://test-user_123:abcde12345@clustertesting-r6toc.mongodb.net/test?retryWrites=true"
