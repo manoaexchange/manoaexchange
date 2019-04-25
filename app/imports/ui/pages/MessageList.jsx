@@ -2,6 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Card, Image, Button } from 'semantic-ui-react';
 import { Messages } from '/imports/api/stuff/messages';
+import MessageItem from '/imports/ui/components/MessageItem';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
@@ -34,6 +35,7 @@ class MessageList extends React.Component {
                     </Button>
                   </Card.Content>
                 </Card>
+                {this.props.messages.map((message) => <MessageItem key={message._id} messages={message} />)}
               </Card.Group>
             </div>
           </Container>
