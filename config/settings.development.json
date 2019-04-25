@@ -1,6 +1,14 @@
 {
   "defaultAccounts": [
     {
+      "username": "sample@sample.com",
+      "password": "changeme",
+      "profile": {
+        "name": "Katherine Piniol",
+        "flagged": false
+      }
+    },
+    {
       "username": "john@foo.com",
       "password": "changeme",
       "profile": {
@@ -53,6 +61,18 @@
       "owner": "sample@sample.com",
       "phone": "808-123-4567",
       "imageurl": "/images/piniolkimg.png"
+    },
+    {
+      "name": "John Doe",
+      "owner": "john@foo.com",
+      "phone": "808-111-1234",
+      "imageurl": "https://avatars0.githubusercontent.com/u/35389960?s=460&v=4"
+    },
+    {
+      "name": "Shawn Anthony",
+      "owner": "admin@foo.com",
+      "phone": "808-111-1234",
+      "imageurl": "https://avatars2.githubusercontent.com/u/42788145?s=460&v=4"
     }
   ],
   "galaxy.meteor.com": {

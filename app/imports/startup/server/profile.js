@@ -4,7 +4,7 @@ import { Profiles } from '../../api/profile/profile.js';
 
 /** Initialize the database with a default profile document. */
 function addData(data) {
-  console.log(`  Adding: ${data.name} (${data.owner})`);
+  console.log(`  Adding profile: ${data.Name} `);
   Profiles.insert(data);
 }
 
