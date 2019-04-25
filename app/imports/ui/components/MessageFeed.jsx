@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Grid, Segment, Form, Button } from 'semantic-ui-react';
+import { Card, Grid, Form, Segment, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -54,8 +54,7 @@ export default class MessageFeed extends React.Component {
                       <Card.Description>Sounds good!</Card.Description>
                     </Card.Content>
                   </Segment>
-                </Card>
-              </Grid.Row>
+                </Card>              </Grid.Row>
               <Grid.Row>
                 <Form reply>
                   <label>Input message:</label>

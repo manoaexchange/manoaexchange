@@ -21,9 +21,9 @@ class Messagepage extends React.Component {
               <Grid.Row centered>
                 <Grid.Column>
                   <div className='messagebgpage fauxBoxShadow'>
-                    <MessageHead/>
+                    <MessageHead messages={this.props.messages} ready={this.props.ready}/>
                     <Divider hidden/>
-                    <MessageFeed/>
+                    <MessageFeed messages={this.props.messages} ready={this.props.ready}/>
                   </div>
                 </Grid.Column>
               </Grid.Row>
