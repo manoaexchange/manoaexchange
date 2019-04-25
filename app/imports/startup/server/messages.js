@@ -19,7 +19,7 @@ if (Messages.find().count() === 0) {
 /** This subscription publishes only the documents associated with the logged in user */
 Meteor.publish('Messages', function publish() {
   if (this.userId) {
-    const username = Meteor.users.findOne(this.userId).email;
+    const username = Meteor.users.findOne(this.userId).emails;
     return (Messages.find({ receiverName: username }) && Messages.find({ senderName: username }));
   }
   return this.ready();
