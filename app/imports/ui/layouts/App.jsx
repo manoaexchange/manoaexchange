@@ -10,7 +10,7 @@ import Landing from '../pages/Landing';
 import UserLanding from '../pages/UserLanding';
 import ListStuff from '../pages/ListStuff';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
-import AddStuff from '../pages/AddStuff';
+import AddItem from '../pages/AddItem';
 import EditStuff from '../pages/EditStuff';
 import EditProfile from '../pages/EditProfilepage';
 import NotFound from '../pages/NotFound';
@@ -44,6 +44,7 @@ class App extends React.Component {
                 <ProtectedRoute path="/message" component={Message}/>
                 <ProtectedRoute path="/messagelist" component={MessageList}/>
                 <ProtectedRoute path="/home" component={UserLanding}/>
+                <ProtectedRoute path="/add" component={AddItem}/>
                 <ProtectedRoute path="/list" component={ListStuff}/>
                 <ProtectedRoute path="/add" component={AddStuff}/>
                 <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
