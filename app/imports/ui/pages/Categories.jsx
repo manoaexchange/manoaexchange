@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Container, Card, Loader } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
-import { Stuffs } from '/imports/api/stuff/stuff';
+import { Stuffs } from '/imports/api/stuff/items';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
@@ -20,28 +20,28 @@ class Categories extends React.Component {
             </Grid>
             <div className='CategoriesPagesBox CategoriesPageTitle fauxBoxShadow'>
               <Card.Group>
-                <Card centered as={NavLink} activeClassName="" exact to="/categoryList">
+                <Card centered as={NavLink} activeClassName="" exact to="/categoryList" category={lamp}>
                   <div className='CategoryBox fauxBoxShadow'>
                     <Grid centered>
                       <h2>LAMPS</h2>
                     </Grid>
                   </div>
                 </Card>
-                <Card centered as={NavLink} activeClassName="" exact to="/categoryList">
+                <Card centered as={NavLink} activeClassName="" exact to="/categoryList" category={pillow}>
                   <div className='CategoryBox fauxBoxShadow'>
                     <Grid centered>
                       <h2>PILLOWS</h2>
                     </Grid>
                   </div>
                 </Card>
-                <Card centered as={NavLink} activeClassName="" exact to="/categoryList">
+                <Card centered as={NavLink} activeClassName="" exact to="/categoryList" category={plate}>
                   <div className='CategoryBox fauxBoxShadow'>
                     <Grid centered>
                       <h2>PLATES</h2>
                     </Grid>
                   </div>
                 </Card>
-                <Card centered as={NavLink} activeClassName="" exact to="/categoryList">
+                <Card centered as={NavLink} activeClassName="" exact to="/categoryList" category={utensil}>
                   <div className='CategoryBox fauxBoxShadow'>
                     <Grid centered>
                       <h2>UTENSILS</h2>
@@ -58,7 +58,7 @@ class Categories extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 Categories.propTypes = {
-  stuffs: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -67,7 +67,7 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('Stuff');
   return {
-    stuffs: Stuffs.find({}).fetch(),
+    items: Items.find({}).fetch(),
     ready: subscription.ready(),
   };
 })(Categories);
