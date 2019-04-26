@@ -4,14 +4,14 @@
     { "username": "john@foo.com", "password": "changeme", "profile": {"name": "john foo", "flagged": false} }
   ],
   "defaultItems": [
-    { "item": "Basket", "quantity": 3, "description": "nice", "image": "placeholder", "condition": "excellent", "owner": "john@foo.com" }
+    { "item": "Basket", "quantity": 3, "description": "nice", "image": "placeholder", "condition": "excellent", "category": "furniture", "owner": "john@foo.com" }
   ],
   "defaultMessages": [
     {"senderName": "john@foo.com", "receiverName": "shawn@foo.com", "messageTime": "3:04 PM", "messageBody": "Generic Temp Message", "flagged": false}
   ],
   "galaxy.meteor.com": {
     "env": {
-      "MONGO_URL": "mongodb+srv://test-user_123:abcde12345@clustertesting-r6toc.mongodb.net/test?retryWrites=true"
+      "MONGO_URL": "mongodb+srv://piniolk:TLWnK8QCviBgs653@cluster0-1ptc7.mongodb.net/test?retryWrites=true"
     }
   }
 }
