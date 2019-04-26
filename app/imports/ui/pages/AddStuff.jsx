@@ -35,9 +35,9 @@ class AddStuff extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { item, quantity, condition, image, description } = data;
+    const { item, quantity, condition, image, description, category } = data;
     const owner = Meteor.user().username;
-    Items.insert({ item, quantity, condition, image, description, owner }, this.insertCallback);
+    Items.insert({ item, quantity, condition, image, description, category, owner }, this.insertCallback);
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -53,6 +53,7 @@ class AddStuff extends React.Component {
                 <TextField name='image'/>
                 <NumField name='quantity' decimal={false}/>
                 <SelectField name='condition'/>
+                <TextField name='category'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' value='fakeuser@foo.com'/>

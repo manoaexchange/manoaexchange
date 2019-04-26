@@ -13,6 +13,7 @@ class StuffItem extends React.Component {
           <Table.Cell>{this.props.items.description}</Table.Cell>
           <Table.Cell>{this.props.items.image}</Table.Cell>
           <Table.Cell>{this.props.items.condition}</Table.Cell>
+          <Table.Cell>{this.props.items.category}</Table.Cell>
           <Table.Cell>
             <Link to={`/edit/${this.props.items._id}`}>Edit</Link>
           </Table.Cell>

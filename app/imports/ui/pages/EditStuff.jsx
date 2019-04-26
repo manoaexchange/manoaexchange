@@ -40,6 +40,7 @@ class EditStuff extends React.Component {
                 <TextField name='name'/>
                 <NumField name='quantity' decimal={false}/>
                 <SelectField name='condition'/>
+                <TextField name='category'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' />

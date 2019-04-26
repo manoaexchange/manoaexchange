@@ -27,6 +27,7 @@ class ListItemAdmin extends React.Component {
                 <Table.HeaderCell>Description</Table.HeaderCell>
                 <Table.HeaderCell>Image</Table.HeaderCell>
                 <Table.HeaderCell>Condition</Table.HeaderCell>
+                <Table.HeaderCell>Category</Table.HeaderCell>
                 <Table.HeaderCell>Owner</Table.HeaderCell>
                 <Table.HeaderCell>Admin</Table.HeaderCell>
               </Table.Row>
