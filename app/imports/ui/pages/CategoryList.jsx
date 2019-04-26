@@ -55,7 +55,7 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('Stuff');
   return {
-    stuffs: Stuffs.find({}).fetch(),
+    stuffs: Stuffs.find({category: this.props.route.category}).fetch(),
     ready: subscription.ready(),
   };
 })(CategoryList);
