@@ -9,8 +9,8 @@ class Product extends React.Component {
     return (
         <Card >
           <Card.Content align='center'>
-            <Card.Header>{this.props.items.name}</Card.Header>
-            <Card.Meta>{this.props.items.created}</Card.Meta>
+            <Card.Header>{this.props.items.item}</Card.Header>
+            <Card.Meta>{this.props.items.category}</Card.Meta>
             <Image size='small'
                    src={this.props.items.image}/>
           </Card.Content>
