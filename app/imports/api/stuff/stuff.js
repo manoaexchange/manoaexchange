@@ -11,12 +11,12 @@ const StuffSchema = new SimpleSchema({
   quantity: Number,
   description: String,
   image: String,
-  owner: String,
   condition: {
     type: String,
     allowedValues: ['excellent', 'good', 'fair', 'poor'],
     defaultValue: 'good',
   },
+  owner: String,
   email: String,
   phone: String,
   imageurl: String,

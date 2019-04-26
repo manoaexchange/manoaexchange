@@ -1,5 +1,5 @@
 import React from 'react';
-import { Stuffs, StuffSchema } from '/imports/api/stuff/stuff';
+import { Items, ItemSchema } from '/imports/api/stuff/items';
 import { Grid, Segment, Header } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
@@ -37,7 +37,7 @@ class AddItem extends React.Component {
   submit(data) {
     const { item, quantity, condition, image, description } = data;
     const owner = Meteor.user().username;
-    Stuffs.insert({ item, quantity, condition, image, description, owner }, this.insertCallback);
+    Items.insert({ item, quantity, condition, image, description, owner }, this.insertCallback);
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -46,7 +46,7 @@ class AddItem extends React.Component {
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">List an item for sale</Header>
-            <AutoForm ref={(ref) => { this.formRef = ref; }} schema={StuffSchema} onSubmit={this.submit}>
+            <AutoForm ref={(ref) => { this.formRef = ref; }} schema={ItemSchema} onSubmit={this.submit}>
               <Segment>
                 <TextField name='item'/>
                 <LongTextField name='description'/>
