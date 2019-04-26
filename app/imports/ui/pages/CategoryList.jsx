@@ -4,7 +4,6 @@ import { Container, Header, Loader, Card, Dropdown, Grid } from 'semantic-ui-rea
 import { Stuffs } from '/imports/api/stuff/stuff';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import Product from '/imports/ui/components/Product';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class CategoryList extends React.Component {
@@ -25,8 +24,8 @@ class CategoryList extends React.Component {
                 <Grid.Column floated='right' width={2}>
                   <Dropdown text='Sort By...'>
                     <Dropdown.Menu>
-                      <Dropdown.Item>Newest First</Dropdown.Item>
-                      <Dropdown.Item>Oldest First</Dropdown.Item>
+                      <Dropdown.Item>Least Items First</Dropdown.Item>
+                      <Dropdown.Item>Most Items First</Dropdown.Item>
                       <Dropdown.Item>A-Z</Dropdown.Item>
                       <Dropdown.Item>Z-A</Dropdown.Item>
                       <Dropdown.Item>Owner Ascending</Dropdown.Item>
@@ -36,8 +35,6 @@ class CategoryList extends React.Component {
                 </Grid.Column>
               </Grid>
               <Card.Group centered>
-                <Product/>
-                <Product/>
               </Card.Group>
             </div>
           </Container>
