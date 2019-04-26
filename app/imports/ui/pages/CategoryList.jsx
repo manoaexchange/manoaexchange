@@ -1,7 +1,7 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Card, Dropdown, Grid } from 'semantic-ui-react';
-import { Stuffs } from '/imports/api/stuff/stuff';
+import { Items } from '/imports/api/stuff/items';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import Product from '/imports/ui/components/Product';
@@ -46,7 +46,7 @@ class CategoryList extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 CategoryList.propTypes = {
-  stuffs: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -55,7 +55,7 @@ export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('Stuff');
   return {
-    stuffs: Stuffs.find({category: this.props.route.category}).fetch(),
+    items: Items.find({category: this.props.route.category}).fetch(),
     ready: subscription.ready(),
   };
 })(CategoryList);
