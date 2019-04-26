@@ -17,29 +17,31 @@ class CategoryList extends React.Component {
   /** Render the page once subscriptions have been received. */
   renderPage() {
     return (
-        <Container>
-          <Header as="h2" textAlign="center">CategoryNameHere</Header>
-          <div className='CategoriesPagesBox listSearchBox fauxBoxShadow'>
-            <Grid>
-              <Grid.Column floated='right' width={2}>
-                <Dropdown text='Sort By...'>
-                  <Dropdown.Menu>
-                    <Dropdown.Item>Newest First</Dropdown.Item>
-                    <Dropdown.Item>Oldest First</Dropdown.Item>
-                    <Dropdown.Item>A-Z</Dropdown.Item>
-                    <Dropdown.Item>Z-A</Dropdown.Item>
-                    <Dropdown.Item>Owner Ascending</Dropdown.Item>
-                    <Dropdown.Item>Owner Descending</Dropdown.Item>
-                  </Dropdown.Menu>
-                </Dropdown>
-              </Grid.Column>
-            </Grid>
-            <Card.Group centered>
-              <Product/>
-              <Product/>
-            </Card.Group>
-          </div>
-        </Container>
+        <div className='generalPageMargin'>
+          <Container>
+            <Header as="h2" textAlign="center">CategoryNameHere</Header>
+            <div className='CategoriesPagesBox listSearchBox fauxBoxShadow'>
+              <Grid>
+                <Grid.Column floated='right' width={2}>
+                  <Dropdown text='Sort By...'>
+                    <Dropdown.Menu>
+                      <Dropdown.Item>Newest First</Dropdown.Item>
+                      <Dropdown.Item>Oldest First</Dropdown.Item>
+                      <Dropdown.Item>A-Z</Dropdown.Item>
+                      <Dropdown.Item>Z-A</Dropdown.Item>
+                      <Dropdown.Item>Owner Ascending</Dropdown.Item>
+                      <Dropdown.Item>Owner Descending</Dropdown.Item>
+                    </Dropdown.Menu>
+                  </Dropdown>
+                </Grid.Column>
+              </Grid>
+              <Card.Group centered>
+                <Product/>
+                <Product/>
+              </Card.Group>
+            </div>
+          </Container>
+        </div>
     );
   }
 }
@@ -52,7 +54,7 @@ CategoryList.propTypes = {
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
-  // Get access to Stuff documents.
+  // Get access to Items documents.
   const subscription = Meteor.subscribe('Stuff');
   return {
     stuffs: Stuffs.find({}).fetch(),

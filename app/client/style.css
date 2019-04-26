@@ -23,6 +23,10 @@
   padding-bottom: 50px;
 }
 
+.generalPageMargin {
+  margin-bottom: 20px;
+}
+
 .fauxBoxShadow {
   padding: 15px 15px 40px 15px;
   margin-bottom: 0px;
@@ -68,6 +72,10 @@
 }
 
 .notifAdminBox {
+  background-color: var(--mainColor);
+}
+
+.footer {
   background-color: var(--mainColor);
 }
 

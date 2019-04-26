@@ -8,13 +8,15 @@ import { Meteor } from 'meteor/meteor';
 
 class Categories extends React.Component {
   render() {
-    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting Data</Loader>;
   }
 
   renderPage() {
+//    const categoryList = this.props.items.pluck({}, 'category');
     return (
         <div>
           <Container>
+
             <Grid centered columns={3}>
               <h1 className='CategoriesPageTitle'>Categories</h1>
             </Grid>
@@ -56,7 +58,7 @@ class Categories extends React.Component {
   }
 }
 
-/** Require an array of Stuff documents in the props. */
+/** Require an array of Items documents in the props. */
 Categories.propTypes = {
   stuffs: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
@@ -64,7 +66,7 @@ Categories.propTypes = {
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
-  // Get access to Stuff documents.
+  // Get access to Items documents.
   const subscription = Meteor.subscribe('Stuff');
   return {
     stuffs: Stuffs.find({}).fetch(),
