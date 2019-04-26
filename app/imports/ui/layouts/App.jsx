@@ -8,10 +8,10 @@ import NavBar from '../components/NavBar';
 import Footer from '../components/Footer';
 import Landing from '../pages/Landing';
 import UserLanding from '../pages/UserLanding';
-import ListStuff from '../pages/ListStuff';
+import ListItem from '../pages/ListItem';
 import ListStuffAdmin from '../pages/ListStuffAdmin';
-import AddStuff from '../pages/AddStuff';
-import EditStuff from '../pages/EditStuff';
+import AddItem from '../pages/AddItem';
+import EditItem from '../pages/EditItem';
 import EditProfile from '../pages/EditProfilepage';
 import NotFound from '../pages/NotFound';
 import Signin from '../pages/Signin';
@@ -19,11 +19,11 @@ import Signup from '../pages/Signup';
 import Signout from '../pages/Signout';
 import Profilepage from '../pages/Profilepage';
 import Message from '../pages/Messagepage';
+import MessageList from '../pages/MessageList';
 import NotifyAdmin from '../pages/NotifyAdmin';
 import Categories from '../pages/Categories';
 import CategoryList from '../pages/CategoryList';
 import SearchPage from '../pages/SearchPage';
-
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -32,25 +32,26 @@ class App extends React.Component {
         <Router>
           <div>
             <NavBar/>
-            <Switch>
-              <Route exact path="/" component={Landing}/>
-              <Route path="/signin" component={Signin}/>
-              <Route path="/signup" component={Signup}/>
-              <Route path="/categories" component={Categories}/>
-              <Route path="/categoryList" component={CategoryList}/>
-              <Route path="/search" component={SearchPage}/>
-              <ProtectedRoute path="/profile" component={Profilepage}/>
-              <ProtectedRoute path="/editprofile" component={EditProfile}/>
-              <ProtectedRoute path="/message" component={Message}/>
-              <ProtectedRoute path="/home" component={UserLanding}/>
-              <ProtectedRoute path="/list" component={ListStuff}/>
-              <ProtectedRoute path="/add" component={AddStuff}/>
-              <ProtectedRoute path="/edit/:_id" component={EditStuff}/>
-              <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
-              <ProtectedRoute path="/signout" component={Signout}/>
-              <ProtectedRoute path="/notify" component={NotifyAdmin}/>
-              <Route component={NotFound}/>
-            </Switch>
+              <Switch>
+                <Route exact path="/" component={Landing}/>
+                <Route path="/signin" component={Signin}/>
+                <Route path="/signup" component={Signup}/>
+                <Route path="/categories" component={Categories}/>
+                <Route path="/categoryList" component={CategoryList}/>
+                <Route path="/search" component={SearchPage}/>
+                <ProtectedRoute path="/profile" component={Profilepage}/>
+                <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
+                <ProtectedRoute path="/message" component={Message}/>
+                <ProtectedRoute path="/messagelist" component={MessageList}/>
+                <ProtectedRoute path="/home" component={UserLanding}/>
+                <ProtectedRoute path="/list" component={ListItem}/>
+                <ProtectedRoute path="/add" component={AddItem}/>
+                <ProtectedRoute path="/edit/:_id" component={EditItem}/>
+                <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
+                <ProtectedRoute path="/signout" component={Signout}/>
+                <ProtectedRoute path="/notify/:_id" component={NotifyAdmin}/>
+                <Route component={NotFound}/>
+              </Switch>
             <Footer/>
           </div>
         </Router>
@@ -64,16 +65,16 @@ class App extends React.Component {
  * @param {any} { component: Component, ...rest }
  */
 const ProtectedRoute = ({ component: Component, ...rest }) => (
-  <Route
-    {...rest}
-    render={(props) => {
-      const isLogged = Meteor.userId() !== null;
-      return isLogged ?
-          (<Component {...props} />) :
-          (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
-      );
-    }}
-  />
+    <Route
+        {...rest}
+        render={(props) => {
+          const isLogged = Meteor.userId() !== null;
+          return isLogged ?
+              (<Component {...props} />) :
+              (<Redirect to={{ pathname: '/signin', state: { from: props.location } }}/>
+              );
+        }}
+    />
 );
 
 /**

@@ -4,7 +4,6 @@ import { Container, Header, Loader, Card, Dropdown, Menu, Input, Divider, Button
 import { Stuffs } from '/imports/api/stuff/stuff';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import Product from '/imports/ui/components/Product';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class SearchPage extends React.Component {
@@ -19,9 +18,10 @@ class SearchPage extends React.Component {
   renderPage() {
     const conditions = [
       { key: 'all', text: 'all', value: 'all' },
-      { key: 'new', text: 'new', value: 'new' },
+      { key: 'excellent', text: 'excellent', value: 'excellent' },
       { key: 'good', text: 'good', value: 'good' },
-      { key: 'bad', text: 'bad', value: 'bad' },
+      { key: 'fair', text: 'fair', value: 'fair' },
+      { key: 'poor', text: 'poor', value: 'poor' },
     ];
     return (
         <Container>
@@ -36,8 +36,8 @@ class SearchPage extends React.Component {
             <Menu.Item><Button>Clear</Button></Menu.Item>
             <Dropdown item text='Sort By...'>
               <Dropdown.Menu>
-                <Dropdown.Item>Newest First</Dropdown.Item>
-                <Dropdown.Item>Oldest First</Dropdown.Item>
+                <Dropdown.Item>Least Items First</Dropdown.Item>
+                <Dropdown.Item>Most Items First</Dropdown.Item>
                 <Dropdown.Item>A-Z</Dropdown.Item>
                 <Dropdown.Item>Z-A</Dropdown.Item>
                 <Dropdown.Item>Owner Ascending</Dropdown.Item>
@@ -48,8 +48,6 @@ class SearchPage extends React.Component {
           <Divider hidden/>
           <div className='CategoriesPagesBox listSearchBox fauxBoxShadow'>
             <Card.Group centered>
-              <Product/>
-              <Product/>
             </Card.Group>
           </div>
         </Container>

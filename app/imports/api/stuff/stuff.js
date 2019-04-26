@@ -7,14 +7,16 @@ const Stuffs = new Mongo.Collection('Stuffs');
 
 /** Create a schema to constrain the structure of documents associated with this collection. */
 const StuffSchema = new SimpleSchema({
-  name: String,
+  item: String,
   quantity: Number,
-  owner: String,
+  description: String,
+  image: String,
   condition: {
     type: String,
     allowedValues: ['excellent', 'good', 'fair', 'poor'],
     defaultValue: 'good',
   },
+  owner: String,
   email: String,
   phone: String,
   imageurl: String,

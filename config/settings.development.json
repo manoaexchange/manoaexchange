@@ -1,13 +1,138 @@
 {
   "defaultAccounts": [
-    { "username": "admin@foo.com", "password": "changeme", "profile": {"name": "admin", "flagged": false}, "role": "admin" },
-    { "username": "john@foo.com", "password": "changeme", "profile": {"name": "john foo", "flagged": false} }
+    {
+      "username": "sample@sample.com",
+      "password": "changeme",
+      "profile": {
+        "name": "Katherine Piniol",
+        "flagged": false
+      }
+    },
+    {
+      "username": "john@foo.com",
+      "password": "changeme",
+      "profile": {
+        "name": "john foo",
+        "flagged": false
+      }
+    },
+    {
+      "username": "admin@foo.com",
+      "password": "changeme",
+      "profile": {
+        "name": "admin",
+        "flagged": false
+      },
+      "role": "admin"
+    }
   ],
   "defaultItems": [
-    { "item": "Basket", "quantity": 3, "description": "nice", "image": "placeholder", "condition": "excellent", "category": "furniture", "owner": "john@foo.com" }
+    {
+      "item": "Basket",
+      "description": "nice",
+      "quantity": 3,
+      "category": "Furniture",
+      "owner": "john@foo.com",
+      "image": "https://www.stock-free.org/images/Thanksgiving-Stock-Free-Image-08112015-image-170.jpg",
+      "condition": "excellent",
+      "flagged": false
+    },
+    {
+      "item": "Straw Basket",
+      "description": "A Basket",
+      "quantity": 1,
+      "category": "Storage",
+      "owner": "sample@sample.com",
+      "image": "https://www.stock-free.org/images/Thanksgiving-Stock-Free-Image-08112015-image-170.jpg",
+      "condition": "good",
+      "flagged": false
+    },
+    {
+      "item": "Desk Lamp",
+      "description": "Unwanted lamp",
+      "quantity": 1,
+      "category": "Appliance",
+      "owner": "john@foo.com",
+      "image": "https://www.publicdomainpictures.net/pictures/200000/nahled/desk-lamp-1475958733bLG.jpg",
+      "condition": "good",
+      "flagged": false
+    },
+    {
+      "item": "Desk Lamp",
+      "description": "I'm graduating and no longer have a use for this. I'm planning on selling it for $20.",
+      "quantity": 1,
+      "category": "Appliance",
+      "owner": "admin@foo.com",
+      "image": "https://www.publicdomainpictures.net/pictures/200000/nahled/desk-lamp-1475958733bLG.jpg",
+      "condition": "good",
+      "flagged": false
+    }
   ],
   "defaultMessages": [
-    {"senderName": "john@foo.com", "receiverName": "shawn@foo.com", "messageTime": "3:04 PM", "messageBody": "Generic Temp Message", "flagged": false}
+    {
+      "owner": "sample@sample.com",
+      "senderName": "sample@sample.com",
+      "name": "john@foo.com",
+      "receiverName": "john@foo.com",
+      "messageTime": "Monday 12:32 pm",
+      "messageBody": "Hello, my name is Katherine Piniol, and I was interested in the lamp you had up for sale.",
+      "flagged": false
+    },
+    {
+      "owner": "john@foo.com",
+      "senderName": "john@foo.com",
+      "name": "sample@sample.com",
+      "receiverName": "sample@sample.com",
+      "messageTime": "Monday 3:54 pm",
+      "messageBody": "Yes, hi! The listed price was $15.62, does that work for you?",
+      "flagged": false
+    },
+    {
+      "owner": "sample@sample.com",
+      "senderName": "sample@sample.com",
+      "name": "john@foo.com",
+      "receiverName": "john@foo.com",
+      "messageTime": "Monday 7:20 pm",
+      "messageBody": "It's works just fine. Shall we meet at Campus Center on Friday at\n                        3?",
+      "flagged": false
+    },
+    {
+      "owner": "john@foo.com",
+      "senderName": "john@foo.com",
+      "name": "sample@sample.com",
+      "receiverName": "sample@sample.com",
+      "messageTime": "Tuesday 9:54 am",
+      "messageBody": "Sounds good!",
+      "flagged": false
+    }
+  ],
+  "defaultProfile": [
+    {
+      "name": "Katherine Piniol",
+      "owner": "sample@sample.com",
+      "phone": "808-123-4567",
+      "imageurl": "/images/piniolkimg.png"
+    },
+    {
+      "name": "Christopher Na",
+      "owner": "admin@foo.com",
+      "phone": "808-111-1234",
+      "imageurl": "https://avatars0.githubusercontent.com/u/35389960?s=460&v=4"
+    },
+    {
+      "name": "John Doe",
+      "owner": "john@foo.com",
+      "phone": "808-111-1234",
+      "imageurl": "https://avatars2.githubusercontent.com/u/42788145?s=460&v=4"
+    }
+  ],
+  "defaultReports": [
+    {
+      "name": "John Doe",
+      "issue": "Inappropriate Behavior",
+      "owner": "john@foo.com",
+      "message": "This is a test report on a person John Smith."
+    }
   ],
   "galaxy.meteor.com": {
     "env": {

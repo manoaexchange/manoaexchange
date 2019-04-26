@@ -13,7 +13,7 @@ import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
 
 /** Renders the Page for adding a document. */
-class AddStuff extends React.Component {
+class AddItem extends React.Component {
 
   /** Bind 'this' so that a ref to the Form can be saved in formRef and communicated between render() and submit(). */
   constructor(props) {
@@ -35,9 +35,9 @@ class AddStuff extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { item, quantity, condition, image, description, category } = data;
+    const { item, category, quantity, condition, image, description } = data;
     const owner = Meteor.user().username;
-    Items.insert({ item, quantity, condition, image, description, category, owner }, this.insertCallback);
+    Items.insert({ item, category, quantity, condition, image, description, owner }, this.insertCallback);
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
@@ -51,9 +51,9 @@ class AddStuff extends React.Component {
                 <TextField name='item'/>
                 <LongTextField name='description'/>
                 <TextField name='image'/>
+                <TextField name='category'/>
                 <NumField name='quantity' decimal={false}/>
                 <SelectField name='condition'/>
-                <TextField name='category'/>
                 <SubmitField value='Submit'/>
                 <ErrorsField/>
                 <HiddenField name='owner' value='fakeuser@foo.com'/>
@@ -65,4 +65,4 @@ class AddStuff extends React.Component {
   }
 }
 
-export default AddStuff;
+export default AddItem;

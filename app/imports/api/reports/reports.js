@@ -3,21 +3,18 @@ import SimpleSchema from 'simpl-schema';
 import { Tracker } from 'meteor/tracker';
 
 /** Create a Meteor collection. */
-const Messages = new Mongo.Collection('Messages');
+const Reports = new Mongo.Collection('Reports');
 
 /** Create a schema to constrain the structure of documents associated with this collection. */
-const MessagesSchema = new SimpleSchema({
-  owner: String,
+const ReportSchema = new SimpleSchema({
   name: String,
-  senderName: String,
-  receiverName: String,
-  messageTime: String,
-  messageBody: String,
-  flagged: Boolean,
+  issue: String,
+  message: String,
+  owner: String,
 }, { tracker: Tracker });
 
 /** Attach this schema to the collection. */
-Messages.attachSchema(MessagesSchema);
+Reports.attachSchema(ReportSchema);
 
 /** Make the collection and schema available to other code. */
-export { Messages, MessagesSchema };
+export { Reports, ReportSchema };
