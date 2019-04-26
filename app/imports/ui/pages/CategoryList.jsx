@@ -35,8 +35,7 @@ class CategoryList extends React.Component {
               </Grid.Column>
             </Grid>
             <Card.Group centered>
-              <Product/>
-              <Product/>
+              {this.props.items.map((item) => <Product key={item._id} items={item} />)}
             </Card.Group>
           </div>
         </Container>
