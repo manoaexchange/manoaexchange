@@ -2,7 +2,7 @@ import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Table, Header, Loader } from 'semantic-ui-react';
 import { Items } from '/imports/api/stuff/items';
-import { Profiles } from '/imports/api/profile/profile';
+import { Accounts } from 'meteor/accounts-base';
 import StuffItemAdmin from '/imports/ui/components/StuffItemAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -43,13 +43,12 @@ class ListItemAdmin extends React.Component {
           <Table celled>
             <Table.Header>
               <Table.Row>
-                <Table.HeaderCell>Name</Table.HeaderCell>
                 <Table.HeaderCell>Owner</Table.HeaderCell>
-                <Table.HeaderCell>Image</Table.HeaderCell>
+                <Table.HeaderCell>Delete</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {this.props.profiles.map((profile) => <ProfileAdmin key={profile._id} profiles={profile}/>)}
+              {this.props.users.map((user) => <ProfileAdmin key={user._id} users={user}/>)}
             </Table.Body>
           </Table>
         </Container>
@@ -60,7 +59,7 @@ class ListItemAdmin extends React.Component {
 /** Require an array of Stuff documents in the props. */
 ListItemAdmin.propTypes = {
   items: PropTypes.array.isRequired,
-  profiles: PropTypes.array.isRequired,
+  users: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -68,10 +67,10 @@ ListItemAdmin.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('ItemsAdmin');
-  const subscription2 = Meteor.subscribe('ProfileAdmin');
+  const subscription2 = Meteor.subscribe('UserView');
   return {
     items: Items.find({}).fetch(),
-    profiles: Profiles.find({}).fetch(),
+    users: Meteor.users.find({}).fetch(),
     ready: subscription.ready() && subscription2.ready(),
   };
 })(ListItemAdmin);

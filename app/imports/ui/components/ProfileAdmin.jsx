@@ -3,8 +3,7 @@ import { Table, Image, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Bert } from 'meteor/themeteorchef:bert';
-import { Profiles } from '/imports/api/stuff/items';
-
+import { Meteor } from 'meteor/meteor';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
 class ProfileAdmin extends React.Component {
@@ -23,18 +22,16 @@ class ProfileAdmin extends React.Component {
 
   onClick() {
     /* eslint-disable-next-line */
-    const result = confirm('Delete this item?');
+    const result = confirm('Delete this user?');
     if (result) {
-      Profiles.remove(this.props.profiles._id, this.deleteCallback);
+      Meteor.users.remove(this.props.users._id, this.deleteCallback);
     }
   }
 
   render() {
     return (
         <Table.Row>
-          <Table.Cell>{this.props.profiles.name}</Table.Cell>
-          <Table.Cell>{this.props.profiles.owner}</Table.Cell>
-          <Table.Cell><Image src ={this.props.profiles.imageurl} size = 'tiny'/> </Table.Cell>
+          <Table.Cell>{this.props.users.username}</Table.Cell>
           <Table.Cell>
             <Button basic onClick={this.onClick}>Delete</Button>
           </Table.Cell>
@@ -45,7 +42,7 @@ class ProfileAdmin extends React.Component {
 
 /** Require a document to be passed to this component. */
 ProfileAdmin.propTypes = {
-  profiles: PropTypes.object.isRequired,
+  users: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
