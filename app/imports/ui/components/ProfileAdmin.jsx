@@ -3,7 +3,7 @@ import { Table, Image, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import { Bert } from 'meteor/themeteorchef:bert';
-import { Items } from '/imports/api/stuff/items';
+import { Profiles } from '/imports/api/stuff/items';
 
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
@@ -25,7 +25,7 @@ class ProfileAdmin extends React.Component {
     /* eslint-disable-next-line */
     const result = confirm('Delete this item?');
     if (result) {
-      Items.remove(this.props.profiles._id, this.deleteCallback);
+      Profiles.remove(this.props.profiles._id, this.deleteCallback);
     }
   }
 
