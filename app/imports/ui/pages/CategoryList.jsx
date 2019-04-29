@@ -1,9 +1,10 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
 import { Container, Header, Loader, Card, Dropdown, Grid } from 'semantic-ui-react';
-import { Stuffs } from '/imports/api/stuff/stuff';
+import { Items } from '/imports/api/stuff/items';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import Product from '/imports/ui/components/Product';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class CategoryList extends React.Component {
@@ -15,6 +16,7 @@ class CategoryList extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
+    const allItems = Items.find();
     return (
         <div className='generalPageMargin'>
           <Container>
@@ -35,6 +37,7 @@ class CategoryList extends React.Component {
                 </Grid.Column>
               </Grid>
               <Card.Group centered>
+                {allItems.map((item) => <Product key={item._id} items={item}/>)}
               </Card.Group>
             </div>
           </Container>
@@ -45,16 +48,16 @@ class CategoryList extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 CategoryList.propTypes = {
-  stuffs: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Items documents.
-  const subscription = Meteor.subscribe('Stuff');
+  const subscription = Meteor.subscribe('Items');
   return {
-    stuffs: Stuffs.find({}).fetch(),
+    items: Items.find({}).fetch(),
     ready: subscription.ready(),
   };
 })(CategoryList);

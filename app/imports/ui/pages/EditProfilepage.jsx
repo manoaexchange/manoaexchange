@@ -17,8 +17,8 @@ class EditProfilepage extends React.Component {
 
   /** On successful submit, insert the data. */
   submit(data) {
-    const { name, imageurl, email, _id } = data;
-    Profiles.update(_id, { $set: { name, imageurl, email } }, (error) => (error ?
+    const { name, imageurl, email, _id, owner } = data;
+    Profiles.update(_id, owner, { $set: { name, imageurl, email } }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
         Bert.alert({ type: 'success', message: 'Update succeeded' }) && <Redirect to="/home"/>));
   }
@@ -43,7 +43,8 @@ class EditProfilepage extends React.Component {
                     <TextField name='name'/>
                     <SubmitField value='Submit'/>
                     <ErrorsField/>
-                    <HiddenField name='owner'/>
+                    <HiddenField name='owner' value={this.props.owner}/>
+                    <HiddenField name='contactId' value={this.props.owner._id}/>
                   </AutoForm>
                 </Grid.Column>
               </Grid>
@@ -56,6 +57,7 @@ class EditProfilepage extends React.Component {
 
 /** Require the presence of Profiles document in the props object. Uniforms adds 'model' to the props, which we use. */
 EditProfilepage.propTypes = {
+  owner: PropTypes.string.isRequired,
   doc: PropTypes.object,
   model: PropTypes.object,
   ready: PropTypes.bool.isRequired,

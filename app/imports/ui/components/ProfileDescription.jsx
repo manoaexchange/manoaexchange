@@ -31,5 +31,4 @@ export default class ProfileDescription extends React.Component {
 /** Require a document to be passed to this component. */
 ProfileDescription.propTypes = {
   profiles: PropTypes.object.isRequired,
-  notes: PropTypes.array.isRequired,
 };

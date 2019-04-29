@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { Card } from 'semantic-ui-react';
 import Product from '/imports/ui/components/Product';
@@ -5,6 +6,8 @@ import PropTypes from 'prop-types';
 
 export default class ProfileProductsOffered extends React.Component {
   render() {
+/**      const username = this.props.profiles.owner;
+      const yourItems = this.props.items.find({ owner: username }); */
     return (
         <div>
           <h2>Products On Sale</h2>

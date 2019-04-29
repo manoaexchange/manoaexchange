@@ -22,9 +22,11 @@ class Profilepage extends React.Component {
               <Container>
                 <div>
                   <h1>Profile Page</h1>
-                  {this.props.profiles.map((profile, index) => <ProfileDescription key={index} profiles={profile} />)}
-                  <Divider inverted/>
-                  <ProfileProductsOffered items={this.props.items}/>
+                  {this.props.profiles.map((profile, index) => <div key={index}>
+                        <ProfileDescription key={index} profiles={profile}/>
+                        <Divider inverted/>
+                        <ProfileProductsOffered key={index} items={this.props.items} profiles={profile}/>
+                      </div>)}
                 </div>
               </Container>
             </Segment>

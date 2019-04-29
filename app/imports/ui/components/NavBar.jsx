@@ -21,12 +21,12 @@ class NavBar extends React.Component {
             )}
             <Menu.Item><Input style={{ width: '650px' }} icon='search' placeholder='Search'/></Menu.Item>
             <Menu.Item position='right' as={NavLink} activeClassName="active" exact to="/categories"
-                       key='add'>Categories</Menu.Item>
+                       key='category'>Categories</Menu.Item>
 
             {this.props.currentUser ? (
                 [<Menu.Item icon='add' as={NavLink} activeClassName="active" exact to="/add" key='add'></Menu.Item>,
                   <Menu.Item icon='envelope' as={NavLink} activeClassName="active" exact to="/messagelist"
-                             key='add'></Menu.Item>,
+                             key='message'></Menu.Item>,
                   <Menu.Item icon='user' as={NavLink} activeClassName="active" exact to="/profile"
                              key='list'></Menu.Item>]
             ) : ''}
