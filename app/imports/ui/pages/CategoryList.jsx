@@ -1,11 +1,12 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, /** Card, Dropdown, */ Grid, Table, Image, Button } from 'semantic-ui-react';
+import { Container, Header, Loader, /** Card, Dropdown, Grid, Image, Button, */ Table } from 'semantic-ui-react';
 import { Items } from '/imports/api/stuff/items';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-import { NavLink } from 'react-router-dom';
+// import { NavLink } from 'react-router-dom';
+import CategoryListItem from '/imports/ui/components/CategoryListItem';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class CategoryList extends React.Component {
@@ -14,55 +15,18 @@ class CategoryList extends React.Component {
     this.handleSort = this.handleSort.bind(this);
   }
 
+  docId = this.props.docId;
+
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-  allItems = Items.find().fetch();
-
-  tableData = [
-    {
-      item: 'Basket',
-      description: 'nice',
-      quantity: 3,
-      category: 'Furniture',
-      owner: 'john@foo.com',
-      image: 'https://www.stock-free.org/images/Thanksgiving-Stock-Free-Image-08112015-image-170.jpg',
-      condition: 'excellent',
-    },
-    {
-      item: 'Straw Basket',
-      description: 'A Basket',
-      quantity: 1,
-      category: 'Storage',
-      owner: 'sample@sample.com',
-      image: 'https://www.stock-free.org/images/Thanksgiving-Stock-Free-Image-08112015-image-170.jpg',
-      condition: 'good',
-    },
-    {
-      item: 'Desk Lamp',
-      description: 'Unwanted lamp',
-      quantity: 1,
-      category: 'Appliance',
-      owner: 'john@foo.com',
-      image: 'https://www.publicdomainpictures.net/pictures/200000/nahled/desk-lamp-1475958733bLG.jpg',
-      condition: 'good',
-    },
-    {
-      item: 'Desk Lamps',
-      description: "I'm graduating and no longer have a use for this. I'm planning on selling it for $20.",
-      quantity: 2,
-      category: 'Appliance',
-      owner: 'admin@foo.com',
-      image: 'https://www.publicdomainpictures.net/pictures/200000/nahled/desk-lamp-1475958733bLG.jpg',
-      condition: 'good',
-    },
-  ];
+  allItems = Items.find({ category: this.docId }).fetch();
 
   state = {
     column: null,
-    data: this.tableData,
+    data: this.allItems,
     direction: null,
   }
 
@@ -134,25 +98,7 @@ class CategoryList extends React.Component {
 
                 <Table.Body>
                   {data.map((item, index) => (
-                      <Table.Row key={index}>
-                        <Table.Cell>{item.item}</Table.Cell>
-                        <Table.Cell><Image size='small' src={item.image}/></Table.Cell>
-                        <Table.Cell>{item.condition}</Table.Cell>
-                        <Table.Cell>{item.quantity}</Table.Cell>
-                        <Table.Cell>{item.description}</Table.Cell>
-                        <Table.Cell>{item.owner}</Table.Cell>
-                        <Table.Cell><Grid centered>
-                          <Button color='red' as={NavLink} activeClassName=""
-                                  exact to={`/notify/${item._id}`}>
-                            Report
-                          </Button>
-                          <Button color='teal' floated='right' as={NavLink} activeClassName=""
-                                  exact to='/message'>
-                            Message
-                          </Button>
-                        </Grid>
-                        </Table.Cell>
-                      </Table.Row>
+                      <CategoryListItem key={index} items={item} index={index}/>
                   ))}
                 </Table.Body>
               </Table>
@@ -178,7 +124,7 @@ export default withTracker(({ match }) => {
   const subscription = Meteor.subscribe('Items');
   return {
     docId: documentId,
-    items: Items.find({ category: documentId }).fetch(),
+    items: Items.find({ category: 'Storage' }),
     ready: subscription.ready(),
   };
 })(CategoryList);

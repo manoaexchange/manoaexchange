@@ -19,7 +19,7 @@ class SearchPage extends React.Component {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-  allItems = Items.find().fetch();
+  allItems = Items.find();
 
   tableData = [
     {
@@ -62,7 +62,7 @@ class SearchPage extends React.Component {
 
   state = {
     column: null,
-    data: this.tableData,
+    data: this.allItems,
     direction: null,
   }
 
