@@ -19,46 +19,7 @@ class SearchPage extends React.Component {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-  allItems = Items.find();
-
-  tableData = [
-    {
-      item: 'Basket',
-      description: 'nice',
-      quantity: 3,
-      category: 'Furniture',
-      owner: 'john@foo.com',
-      image: 'https://www.stock-free.org/images/Thanksgiving-Stock-Free-Image-08112015-image-170.jpg',
-      condition: 'excellent',
-    },
-    {
-      item: 'Straw Basket',
-      description: 'A Basket',
-      quantity: 1,
-      category: 'Storage',
-      owner: 'sample@sample.com',
-      image: 'https://www.stock-free.org/images/Thanksgiving-Stock-Free-Image-08112015-image-170.jpg',
-      condition: 'good',
-    },
-    {
-      item: 'Desk Lamp',
-      description: 'Unwanted lamp',
-      quantity: 1,
-      category: 'Appliance',
-      owner: 'john@foo.com',
-      image: 'https://www.publicdomainpictures.net/pictures/200000/nahled/desk-lamp-1475958733bLG.jpg',
-      condition: 'good',
-    },
-    {
-      item: 'Desk Lamps',
-      description: "I'm graduating and no longer have a use for this. I'm planning on selling it for $20.",
-      quantity: 2,
-      category: 'Appliance',
-      owner: 'admin@foo.com',
-      image: 'https://www.publicdomainpictures.net/pictures/200000/nahled/desk-lamp-1475958733bLG.jpg',
-      condition: 'good',
-    },
-  ];
+  allItems = Items.find({});
 
   state = {
     column: null,
@@ -192,7 +153,7 @@ export default withTracker(() => {
   // Get access to Items documents.
   const subscription = Meteor.subscribe('Items');
   return {
-    items: Items.find().fetch(),
+    items: Items.find({}).fetch(),
     ready: subscription.ready(),
   };
 })(SearchPage);

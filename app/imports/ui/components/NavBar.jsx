@@ -5,6 +5,7 @@ import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
 import { Menu, Dropdown, Input, Container } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
+import SearchBar from '../components/SearchBar';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
 class NavBar extends React.Component {
@@ -19,7 +20,7 @@ class NavBar extends React.Component {
 
                 <Menu.Item icon='home' as={NavLink} activeClassName="" exact to="/home"></Menu.Item>
             )}
-            <Menu.Item><Input style={{ width: '650px' }} icon='search' placeholder='Search'/></Menu.Item>
+            <Menu.Item><SearchBar/></Menu.Item>
             <Menu.Item position='right' as={NavLink} activeClassName="active" exact to="/categories"
                        key='category'>Categories</Menu.Item>
 
