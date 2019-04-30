@@ -1,10 +1,11 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, /** Card, Dropdown, Grid, */ Table, Image } from 'semantic-ui-react';
+import { Container, Header, Loader, /** Card, Dropdown, */ Grid, Table, Image, Button } from 'semantic-ui-react';
 import { Items } from '/imports/api/stuff/items';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
+import { NavLink } from 'react-router-dom';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class CategoryList extends React.Component {
@@ -18,7 +19,7 @@ class CategoryList extends React.Component {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-  allItems = Items.find({}).fetch();
+  allItems = Items.find().fetch();
 
   tableData = [
     {
@@ -90,7 +91,7 @@ class CategoryList extends React.Component {
     return (
         <div className='generalPageMargin'>
           <Container>
-            <Header as='h2' textAlign='center'>CategoryNameHere</Header>
+            <Header as='h2' textAlign='center'>{this.props.docId}</Header>
             <div className='CategoriesPagesBox listSearchBox fauxBoxShadow'>
               <Table sortable basic='very' celled fixed>
                 <Table.Header>
@@ -103,12 +104,6 @@ class CategoryList extends React.Component {
                     </Table.HeaderCell>
                     <Table.HeaderCell>
                       Image
-                    </Table.HeaderCell>
-                    <Table.HeaderCell
-                        sorted={column === 'category' ? direction : null}
-                        onClick={this.handleSort('category')}
-                    >
-                      Category
                     </Table.HeaderCell>
                     <Table.HeaderCell
                         sorted={column === 'condition' ? direction : null}
@@ -131,6 +126,9 @@ class CategoryList extends React.Component {
                     >
                       Owner
                     </Table.HeaderCell>
+                    <Table.HeaderCell>
+                      Links
+                    </Table.HeaderCell>
                   </Table.Row>
                 </Table.Header>
 
@@ -139,11 +137,21 @@ class CategoryList extends React.Component {
                       <Table.Row key={index}>
                         <Table.Cell>{item.item}</Table.Cell>
                         <Table.Cell><Image size='small' src={item.image}/></Table.Cell>
-                        <Table.Cell>{item.category}</Table.Cell>
                         <Table.Cell>{item.condition}</Table.Cell>
                         <Table.Cell>{item.quantity}</Table.Cell>
                         <Table.Cell>{item.description}</Table.Cell>
                         <Table.Cell>{item.owner}</Table.Cell>
+                        <Table.Cell><Grid centered>
+                          <Button color='red' as={NavLink} activeClassName=""
+                                  exact to={`/notify/${item._id}`}>
+                            Report
+                          </Button>
+                          <Button color='teal' floated='right' as={NavLink} activeClassName=""
+                                  exact to='/message'>
+                            Message
+                          </Button>
+                        </Grid>
+                        </Table.Cell>
                       </Table.Row>
                   ))}
                 </Table.Body>
@@ -157,16 +165,20 @@ class CategoryList extends React.Component {
 
 /** Require an array of Stuff documents in the props. */
 CategoryList.propTypes = {
+  docId: PropTypes.string.isRequired,
   items: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
-export default withTracker(() => {
+export default withTracker(({ match }) => {
+  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
+  const documentId = match.params._id;
   // Get access to Items documents.
   const subscription = Meteor.subscribe('Items');
   return {
-    items: Items.find({}).fetch(),
+    docId: documentId,
+    items: Items.find({ category: documentId }).fetch(),
     ready: subscription.ready(),
   };
 })(CategoryList);

@@ -13,7 +13,8 @@ class Categories extends React.Component {
   }
 
   renderPage() {
-    const categoryList = _.pluck(this.props.items.find({}).fetch(), 'category');
+    let categoryList = this.props.items.map(obj => obj.category);
+    categoryList = _.uniq(categoryList);
     return (
         <div>
           <Container>
@@ -23,41 +24,16 @@ class Categories extends React.Component {
             </Grid>
             <div className='CategoriesPagesBox CategoriesPageTitle fauxBoxShadow'>
               <Card.Group>
-                {categoryList.map( (category, index) => <Card centered as={NavLink} activeClassName="" exact to="/categoryList" key={index}>
-                  <div className='CategoryBox fauxBoxShadow'>
-                    <Grid centered>
-                      <h2>{category}</h2>
-                    </Grid>
-                  </div>
-                </Card>)}
-                <Card centered as={NavLink} activeClassName="" exact to="/categoryList">
-                  <div className='CategoryBox fauxBoxShadow'>
-                    <Grid centered>
-                      <h2>LAMPS</h2>
-                    </Grid>
-                  </div>
-                </Card>
-                <Card centered as={NavLink} activeClassName="" exact to="/categoryList">
-                  <div className='CategoryBox fauxBoxShadow'>
-                    <Grid centered>
-                      <h2>PILLOWS</h2>
-                    </Grid>
-                  </div>
-                </Card>
-                <Card centered as={NavLink} activeClassName="" exact to="/categoryList">
-                  <div className='CategoryBox fauxBoxShadow'>
-                    <Grid centered>
-                      <h2>PLATES</h2>
-                    </Grid>
-                  </div>
-                </Card>
-                <Card centered as={NavLink} activeClassName="" exact to="/categoryList">
-                  <div className='CategoryBox fauxBoxShadow'>
-                    <Grid centered>
-                      <h2>UTENSILS</h2>
-                    </Grid>
-                  </div>
-                </Card>
+                {
+                  categoryList.map((category, index) => <Card centered as={NavLink} activeClassName="" exact
+                                                              to={`/categoryList/${category}`}
+                                                              key={index}v>
+                        <div className='CategoryBox fauxBoxShadow'>
+                          <Grid centered>
+                            <h2>{category}</h2>
+                          </Grid>
+                        </div>
+                      </Card>)}
               </Card.Group>
             </div>
           </Container>
