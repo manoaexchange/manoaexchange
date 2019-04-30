@@ -4,9 +4,7 @@ import { Container, Header, Loader, /** Card, Dropdown, Grid, */ Table, Image } 
 import { Items } from '/imports/api/stuff/items';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-// import Product from '/imports/ui/components/Product';
-
-const allItems = Items.find({});
+import _ from 'lodash';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class CategoryList extends React.Component {
@@ -15,11 +13,57 @@ class CategoryList extends React.Component {
     this.handleSort = this.handleSort.bind(this);
   }
 
+  /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
+  render() {
+    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
+  }
+
+  allItems = Items.find({}).fetch();
+
+  tableData = [
+    {
+      item: 'Basket',
+      description: 'nice',
+      quantity: 3,
+      category: 'Furniture',
+      owner: 'john@foo.com',
+      image: 'https://www.stock-free.org/images/Thanksgiving-Stock-Free-Image-08112015-image-170.jpg',
+      condition: 'excellent',
+    },
+    {
+      item: 'Straw Basket',
+      description: 'A Basket',
+      quantity: 1,
+      category: 'Storage',
+      owner: 'sample@sample.com',
+      image: 'https://www.stock-free.org/images/Thanksgiving-Stock-Free-Image-08112015-image-170.jpg',
+      condition: 'good',
+    },
+    {
+      item: 'Desk Lamp',
+      description: 'Unwanted lamp',
+      quantity: 1,
+      category: 'Appliance',
+      owner: 'john@foo.com',
+      image: 'https://www.publicdomainpictures.net/pictures/200000/nahled/desk-lamp-1475958733bLG.jpg',
+      condition: 'good',
+    },
+    {
+      item: 'Desk Lamps',
+      description: 'I&apos;m graduating and no longer have a use for this. I&apos;m planning on selling it for $20.',
+      quantity: 2,
+      category: 'Appliance',
+      owner: 'admin@foo.com',
+      image: 'https://www.publicdomainpictures.net/pictures/200000/nahled/desk-lamp-1475958733bLG.jpg',
+      condition: 'good',
+    },
+  ];
+
   state = {
     column: null,
-    data: allItems,
+    data: this.tableData,
     direction: null,
-  };
+  }
 
   handleSort = clickedColumn => () => {
     const { column, data, direction } = this.state;
@@ -27,7 +71,7 @@ class CategoryList extends React.Component {
     if (column !== clickedColumn) {
       this.setState({
         column: clickedColumn,
-        data: data.sortBy(data, [clickedColumn]),
+        data: _.sortBy(data, [clickedColumn]),
         direction: 'ascending',
       });
 
@@ -38,11 +82,6 @@ class CategoryList extends React.Component {
       data: data.reverse(),
       direction: direction === 'ascending' ? 'descending' : 'ascending',
     });
-  }
-
-  /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
-  render() {
-    return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
   /** Render the page once subscriptions have been received. */
@@ -62,10 +101,7 @@ class CategoryList extends React.Component {
                     >
                       Name
                     </Table.HeaderCell>
-                    <Table.HeaderCell
-                        sorted={column === 'image' ? direction : null}
-                        onClick={this.handleSort('image')}
-                    >
+                    <Table.HeaderCell>
                       Image
                     </Table.HeaderCell>
                     <Table.HeaderCell
@@ -86,10 +122,7 @@ class CategoryList extends React.Component {
                     >
                       Quantity
                     </Table.HeaderCell>
-                    <Table.HeaderCell
-                        sorted={column === 'description' ? direction : null}
-                        onClick={this.handleSort('description')}
-                    >
+                    <Table.HeaderCell>
                       Description
                     </Table.HeaderCell>
                     <Table.HeaderCell
@@ -102,9 +135,8 @@ class CategoryList extends React.Component {
                 </Table.Header>
 
                 <Table.Body>
-                  {data.map((item) => (
-
-                      <Table.Row key={item}>
+                  {data.map((item, index) => (
+                      <Table.Row key={index}>
                         <Table.Cell>{item.item}</Table.Cell>
                         <Table.Cell><Image size='small' src={item.image}/></Table.Cell>
                         <Table.Cell>{item.category}</Table.Cell>
