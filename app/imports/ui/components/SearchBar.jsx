@@ -3,20 +3,21 @@ import { Form } from 'semantic-ui-react';
 import { Redirect } from 'react-router-dom';
 
 export default class ProfileProductsOffered extends React.Component {
-  state = { search: '', submittedSearch: '', redirectToReferer: false }
+  state = { search: '', submittedSearch: '' /** , redirectToReferer: false */ }
 
   handleChange = (e, { name, value }) => this.setState({ [name]: value })
 
   handleSubmit = () => {
     const { search } = this.state;
-    this.setState({ submittedSearch: search, redirectToReferer: true });
+    this.setState({ submittedSearch: search /** , redirectToReferer: true */ });
   }
 
   render() {
     const { search } = this.state;
+    /**
     if (this.state.redirectToReferer) {
       return <Redirect to={`/search/${this.submittedSearch}`}/>;
-    }
+    } */
     return (
         <div>
           <Form onSubmit={this.handleSubmit}>

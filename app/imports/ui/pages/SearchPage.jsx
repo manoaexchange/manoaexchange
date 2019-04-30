@@ -19,7 +19,7 @@ class SearchPage extends React.Component {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-  allItems = Items.find({});
+  allItems = Items.find({ category: });
 
   state = {
     column: null,
@@ -61,10 +61,13 @@ class SearchPage extends React.Component {
           <Container>
             <Header as='h2' textAlign='center'>Search Results</Header>
             <div className='CategoriesPagesBox listSearchBox fauxBoxShadow'>
+
               <Input
                   fluid icon='search' placeholder='Search'
                   label={<Dropdown defaultValue='all' options={conditions}/>}
                   labelPosition='left'/>
+
+
               <Table sortable basic='very' celled fixed>
                 <Table.Header>
                   <Table.Row>
@@ -146,13 +149,17 @@ class SearchPage extends React.Component {
 SearchPage.propTypes = {
   items: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
+  docId: PropTypes.string.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
-export default withTracker(() => {
+export default withTracker(({ match }) => {
+  // Get the documentID from the URL field. See imports/ui/layouts/App.jsx for the route containing :_id.
+  const documentId = match.params._id;
   // Get access to Items documents.
   const subscription = Meteor.subscribe('Items');
   return {
+    docId: documentId,
     items: Items.find({}).fetch(),
     ready: subscription.ready(),
   };
