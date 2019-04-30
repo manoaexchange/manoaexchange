@@ -1,13 +1,44 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Card, Dropdown, Grid } from 'semantic-ui-react';
+import { Container, Header, Loader, /** Card, Dropdown, Grid, */ Table, Image } from 'semantic-ui-react';
 import { Items } from '/imports/api/stuff/items';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import Product from '/imports/ui/components/Product';
+// import Product from '/imports/ui/components/Product';
+
+const allItems = Items.find({});
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class CategoryList extends React.Component {
+  constructor(props) {
+    super(props);
+    this.handleSort = this.handleSort.bind(this);
+  }
+
+  state = {
+    column: null,
+    data: allItems,
+    direction: null,
+  };
+
+  handleSort = clickedColumn => () => {
+    const { column, data, direction } = this.state;
+
+    if (column !== clickedColumn) {
+      this.setState({
+        column: clickedColumn,
+        data: data.sortBy(data, [clickedColumn]),
+        direction: 'ascending',
+      });
+
+      return;
+    }
+
+    this.setState({
+      data: data.reverse(),
+      direction: direction === 'ascending' ? 'descending' : 'ascending',
+    });
+  }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
@@ -16,55 +47,75 @@ class CategoryList extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const options = [
-      {
-        key: 'Least Items First',
-        text: 'Least Items First',
-        value: 'Least Items First',
-        content: 'Least Items First',
-      },
-      {
-        key: 'this week',
-        text: 'this week',
-        value: 'this week',
-        content: 'This Week',
-      },
-      {
-        key: 'this month',
-        text: 'this month',
-        value: 'this month',
-        content: 'This Month',
-      },
-    ];
-    const sortState = { item: -1 };
-    const allItems = Items.find({}, { sort: sortState });
+    const { column, data, direction } = this.state;
     return (
         <div className='generalPageMargin'>
           <Container>
-            <Header as="h2" textAlign="center">CategoryNameHere</Header>
+            <Header as='h2' textAlign='center'>CategoryNameHere</Header>
             <div className='CategoriesPagesBox listSearchBox fauxBoxShadow'>
-              <Grid>
-                <Grid.Column floated='right' width={2}>
-                  <Dropdown
-                      header='Sort By...'
-                      options={options}
-                      defaultValue={options[0].value}
-                  />
-                  <Dropdown text='Sort By...'>
-                    <Dropdown.Menu>
-                      <Dropdown.Item>Least Items First</Dropdown.Item>
-                      <Dropdown.Item>Most Items First</Dropdown.Item>
-                      <Dropdown.Item>A-Z</Dropdown.Item>
-                      <Dropdown.Item>Z-A</Dropdown.Item>
-                      <Dropdown.Item>Owner Ascending</Dropdown.Item>
-                      <Dropdown.Item>Owner Descending</Dropdown.Item>
-                    </Dropdown.Menu>
-                  </Dropdown>
-                </Grid.Column>
-              </Grid>
-              <Card.Group centered>
-                {allItems.map((item) => <Product key={item._id} items={item}/>)}
-              </Card.Group>
+              <Table sortable basic='very' celled fixed>
+                <Table.Header>
+                  <Table.Row>
+                    <Table.HeaderCell
+                        sorted={column === 'item' ? direction : null}
+                        onClick={this.handleSort('item')}
+                    >
+                      Name
+                    </Table.HeaderCell>
+                    <Table.HeaderCell
+                        sorted={column === 'image' ? direction : null}
+                        onClick={this.handleSort('image')}
+                    >
+                      Image
+                    </Table.HeaderCell>
+                    <Table.HeaderCell
+                        sorted={column === 'category' ? direction : null}
+                        onClick={this.handleSort('category')}
+                    >
+                      Category
+                    </Table.HeaderCell>
+                    <Table.HeaderCell
+                        sorted={column === 'condition' ? direction : null}
+                        onClick={this.handleSort('condition')}
+                    >
+                      Condition
+                    </Table.HeaderCell>
+                    <Table.HeaderCell
+                        sorted={column === 'quantity' ? direction : null}
+                        onClick={this.handleSort('quantity')}
+                    >
+                      Quantity
+                    </Table.HeaderCell>
+                    <Table.HeaderCell
+                        sorted={column === 'description' ? direction : null}
+                        onClick={this.handleSort('description')}
+                    >
+                      Description
+                    </Table.HeaderCell>
+                    <Table.HeaderCell
+                        sorted={column === 'owner' ? direction : null}
+                        onClick={this.handleSort('owner')}
+                    >
+                      Owner
+                    </Table.HeaderCell>
+                  </Table.Row>
+                </Table.Header>
+
+                <Table.Body>
+                  {data.map((item) => (
+
+                      <Table.Row key={item}>
+                        <Table.Cell>{item.item}</Table.Cell>
+                        <Table.Cell><Image size='small' src={item.image}/></Table.Cell>
+                        <Table.Cell>{item.category}</Table.Cell>
+                        <Table.Cell>{item.condition}</Table.Cell>
+                        <Table.Cell>{item.quantity}</Table.Cell>
+                        <Table.Cell>{item.description}</Table.Cell>
+                        <Table.Cell>{item.owner}</Table.Cell>
+                      </Table.Row>
+                  ))}
+                </Table.Body>
+              </Table>
             </div>
           </Container>
         </div>
