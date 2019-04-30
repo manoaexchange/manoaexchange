@@ -16,7 +16,28 @@ class CategoryList extends React.Component {
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const allItems = Items.find();
+    const options = [
+      {
+        key: 'Least Items First',
+        text: 'Least Items First',
+        value: 'Least Items First',
+        content: 'Least Items First',
+      },
+      {
+        key: 'this week',
+        text: 'this week',
+        value: 'this week',
+        content: 'This Week',
+      },
+      {
+        key: 'this month',
+        text: 'this month',
+        value: 'this month',
+        content: 'This Month',
+      },
+    ];
+    const sortState = { item: -1 };
+    const allItems = Items.find({}, { sort: sortState });
     return (
         <div className='generalPageMargin'>
           <Container>
@@ -24,6 +45,11 @@ class CategoryList extends React.Component {
             <div className='CategoriesPagesBox listSearchBox fauxBoxShadow'>
               <Grid>
                 <Grid.Column floated='right' width={2}>
+                  <Dropdown
+                      header='Sort By...'
+                      options={options}
+                      defaultValue={options[0].value}
+                  />
                   <Dropdown text='Sort By...'>
                     <Dropdown.Menu>
                       <Dropdown.Item>Least Items First</Dropdown.Item>
