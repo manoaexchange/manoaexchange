@@ -51,7 +51,7 @@ class CategoryList extends React.Component {
     },
     {
       item: 'Desk Lamps',
-      description: 'I&apos;m graduating and no longer have a use for this. I&apos;m planning on selling it for $20.',
+      description: "I'm graduating and no longer have a use for this. I'm planning on selling it for $20.",
       quantity: 2,
       category: 'Appliance',
       owner: 'admin@foo.com',
