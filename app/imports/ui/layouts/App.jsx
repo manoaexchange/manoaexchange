@@ -24,8 +24,6 @@ import NotifyAdmin from '../pages/NotifyAdmin';
 import Categories from '../pages/Categories';
 import CategoryList from '../pages/CategoryList';
 import SearchPage from '../pages/SearchPage';
-import AdminReport from '../pages/AdminReport';
-
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -50,7 +48,6 @@ class App extends React.Component {
                 <ProtectedRoute path="/add" component={AddItem}/>
                 <ProtectedRoute path="/edit/:_id" component={EditItem}/>
                 <AdminProtectedRoute path="/admin" component={ListStuffAdmin}/>
-                <AdminProtectedRoute path="/adminpage" component={AdminReport}/>
                 <ProtectedRoute path="/signout" component={Signout}/>
                 <ProtectedRoute path="/notify/:_id" component={NotifyAdmin}/>
                 <Route component={NotFound}/>
