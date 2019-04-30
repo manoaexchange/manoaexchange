@@ -1,10 +1,11 @@
 import React from 'react';
 import { Grid, Container, Card, Loader } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
-import { Stuffs } from '/imports/api/stuff/stuff';
+import { Items } from '/imports/api/stuff/items';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
+import _ from 'lodash';
 
 class Categories extends React.Component {
   render() {
@@ -12,7 +13,7 @@ class Categories extends React.Component {
   }
 
   renderPage() {
-//    const categoryList = this.props.items.pluck({}, 'category');
+    const categoryList = _.pluck(this.props.items.find({}).fetch(), 'category');
     return (
         <div>
           <Container>
@@ -22,6 +23,13 @@ class Categories extends React.Component {
             </Grid>
             <div className='CategoriesPagesBox CategoriesPageTitle fauxBoxShadow'>
               <Card.Group>
+                {categoryList.map( (category, index) => <Card centered as={NavLink} activeClassName="" exact to="/categoryList" key={index}>
+                  <div className='CategoryBox fauxBoxShadow'>
+                    <Grid centered>
+                      <h2>{category}</h2>
+                    </Grid>
+                  </div>
+                </Card>)}
                 <Card centered as={NavLink} activeClassName="" exact to="/categoryList">
                   <div className='CategoryBox fauxBoxShadow'>
                     <Grid centered>
@@ -60,16 +68,16 @@ class Categories extends React.Component {
 
 /** Require an array of Items documents in the props. */
 Categories.propTypes = {
-  stuffs: PropTypes.array.isRequired,
+  items: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
 /** withTracker connects Meteor data to React components. https://guide.meteor.com/react.html#using-withTracker */
 export default withTracker(() => {
   // Get access to Items documents.
-  const subscription = Meteor.subscribe('Stuff');
+  const subscription = Meteor.subscribe('Items');
   return {
-    stuffs: Stuffs.find({}).fetch(),
+    items: Items.find({}).fetch(),
     ready: subscription.ready(),
   };
 })(Categories);
