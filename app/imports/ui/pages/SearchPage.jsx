@@ -19,7 +19,9 @@ class SearchPage extends React.Component {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-  allItems = Items.find({ category: });
+  docId = 'Desk Lamp';
+
+  allItems = Items.find({ item: this.docId });
 
   state = {
     column: null,

@@ -1,5 +1,6 @@
 import React from 'react';
 import { Grid, Divider, Input, Icon, Container } from 'semantic-ui-react';
+import SearchBar from '../components/SearchBar';
 
 /** A simple static component to render some text for the landing page. */
 class UserLanding extends React.Component {
@@ -55,7 +56,7 @@ class UserLanding extends React.Component {
               </Divider>
               <Grid.Row>
                 <div>
-                  <Input style={{ width: '500px' }} size='massive' icon='search' placeholder='Search'/>
+                  <SearchBar/>
                 </div>
               </Grid.Row>
             </Grid>
