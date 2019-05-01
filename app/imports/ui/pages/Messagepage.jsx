@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container, Divider, Grid, Loader } from 'semantic-ui-react';
-import MessageFeedItem from '/imports/ui/components/MessageFeed';
+import MessageFeed from '/imports/ui/components/MessageFeed';
 import MessageHead from '/imports/ui/components/MessageHead';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
@@ -23,7 +23,7 @@ class Messagepage extends React.Component {
                   <div className='messagebgpage fauxBoxShadow'>
                     <MessageHead messages={this.props.messages} ready={this.props.ready}/>
                     <Divider hidden/>
-                    <MessageFeedItem messages={this.props.messages} ready={this.props.ready}/>
+                    <MessageFeed messages={this.props.messages} ready={this.props.ready}/>
                   </div>
                 </Grid.Column>
               </Grid.Row>
