@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Dropdown, Table, Image, Input, Grid, Button } from 'semantic-ui-react';
+import { Container, Header, Loader, Dropdown, Table, Image, Input, Grid, Button, Search } from 'semantic-ui-react';
 import { Items } from '/imports/api/stuff/items';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -19,14 +19,17 @@ class SearchPage extends React.Component {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
   }
 
-  docId = 'Desk Lamp';
+  docId = this.props.docId;
 
-  allItems = Items.find({ item: this.docId });
+  allItems = Items.find({ item: 'Desk Lamp' });
 
   state = {
     column: null,
     data: this.allItems,
     direction: null,
+    isLoading: null,
+    value: null,
+    results: null,
   }
 
   handleSort = clickedColumn => () => {
@@ -48,6 +51,30 @@ class SearchPage extends React.Component {
     });
   }
 
+  componentWillMount() {
+    this.resetComponent();
+  }
+
+  resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
+
+  handleResultSelect = (e, { result }) => this.setState({ value: result.items.item })
+
+  handleSearchChange = (e, { value }) => {
+    this.setState({ isLoading: true, value });
+
+    setTimeout(() => {
+      if (this.state.value.length < 1) return this.resetComponent();
+
+      const re = new RegExp(_.escapeRegExp(this.state.value), 'i');
+      const isMatch = result => re.test(result.item);
+
+      this.setState({
+        isLoading: false,
+        results: _.filter(this.allItems, isMatch),
+      });
+    }, 300);
+  }
+
   /** Render the page once subscriptions have been received. */
   renderPage() {
     const conditions = [
@@ -57,18 +84,24 @@ class SearchPage extends React.Component {
       { key: 'fair', text: 'fair', value: 'fair' },
       { key: 'poor', text: 'poor', value: 'poor' },
     ];
-    const { column, data, direction } = this.state;
+    const { column, data, direction, isLoading, value, results } = this.state;
     return (
         <div className='generalPageMargin'>
           <Container>
             <Header as='h2' textAlign='center'>Search Results</Header>
             <div className='CategoriesPagesBox listSearchBox fauxBoxShadow'>
 
-              <Input
-                  fluid icon='search' placeholder='Search'
-                  label={<Dropdown defaultValue='all' options={conditions}/>}
-                  labelPosition='left'/>
-
+              <Search
+                  fluid
+                  loading={isLoading}
+                  onResultSelect={this.handleResultSelect}
+                  onSearchChange={_.debounce(this.handleSearchChange, 500, {
+                    leading: true,
+                  })}
+                  results={results}
+                  value={value}
+                  {...this.props}
+              />
 
               <Table sortable basic='very' celled fixed>
                 <Table.Header>

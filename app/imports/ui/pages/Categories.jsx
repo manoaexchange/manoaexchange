@@ -18,7 +18,6 @@ class Categories extends React.Component {
     return (
         <div>
           <Container>
-
             <Grid centered columns={3}>
               <h1 className='CategoriesPageTitle'>Categories</h1>
             </Grid>

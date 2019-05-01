@@ -1,6 +1,6 @@
 import React from 'react';
-import { Grid, Divider, Input, Icon, Container } from 'semantic-ui-react';
-import SearchBar from '../components/SearchBar';
+import { Grid, Divider, Icon, Container, Button } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
 class UserLanding extends React.Component {
@@ -28,6 +28,10 @@ class UserLanding extends React.Component {
                     <h1>Categories</h1>
                     <p>Not sure what you need?</p>
                     <p>Search our directories to see what is available.</p>
+                    <Button basic color='olive' floated='right' as={NavLink} activeClassName=""
+                            exact to='/categories'>
+                      Categories
+                    </Button>
                   </div>
                 </Grid.Column>
                 <Grid.Column>
@@ -35,9 +39,13 @@ class UserLanding extends React.Component {
                     <Icon name='question circle' size='big'/>
                   </Divider>
                   <div className='text landingSearch'>
-                    <h1>Advanced Search</h1>
+                    <h1>Search</h1>
                     <p>Already know exactly what you need?</p>
                     <p>Advanced search is here to quickly narrow your search!</p>
+                    <Button basic color='olive' floated='right' as={NavLink} activeClassName=""
+                            exact to='/search'>
+                      Search
+                    </Button>
                   </div>
                 </Grid.Column>
                 <Grid.Column>
@@ -48,17 +56,16 @@ class UserLanding extends React.Component {
                     <h1>List Items</h1>
                     <p>Looking to sell something?</p>
                     <p>Create a new item listing here!</p>
+                    <Button basic color='olive' as={NavLink} activeClassName=""
+                            exact to='/add'>
+                      Add Item
+                    </Button>
                   </div>
                 </Grid.Column>
               </Grid.Row>
               <Divider horizontal>
                 <Icon name='search' size='massive'/>
               </Divider>
-              <Grid.Row>
-                <div>
-                  <SearchBar/>
-                </div>
-              </Grid.Row>
             </Grid>
           </div>
         </div>

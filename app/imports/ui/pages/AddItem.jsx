@@ -1,6 +1,6 @@
 import React from 'react';
 import { Items, ItemSchema } from '/imports/api/stuff/items';
-import { Grid, Segment, Header } from 'semantic-ui-react';
+import { Grid, Segment, Header, Container } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
 import LongTextField from 'uniforms-semantic/LongTextField';
@@ -43,24 +43,30 @@ class AddItem extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
     return (
-        <Grid container centered>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">List an item for sale</Header>
-            <AutoForm ref={(ref) => { this.formRef = ref; }} schema={ItemSchema} onSubmit={this.submit}>
-              <Segment>
-                <TextField name='item'/>
-                <LongTextField name='description'/>
-                <TextField name='image'/>
-                <TextField name='category'/>
-                <NumField name='quantity' decimal={false}/>
-                <SelectField name='condition'/>
-                <SubmitField value='Submit'/>
-                <ErrorsField/>
-                <HiddenField name='owner' value='fakeuser@foo.com'/>
-              </Segment>
-            </AutoForm>
-          </Grid.Column>
-        </Grid>
+        <div className='generalPageMargin'>
+        <Container>
+        <div className='CategoriesPagesBox fauxBoxShadow'>
+          <Grid centered>
+            <Grid.Column>
+              <Header as="h2" textAlign="center">List an item for sale</Header>
+              <AutoForm ref={(ref) => {
+                this.formRef = ref;
+              }} schema={ItemSchema} onSubmit={this.submit}>
+                  <TextField name='item'/>
+                  <LongTextField name='description'/>
+                  <TextField name='image'/>
+                  <TextField name='category'/>
+                  <NumField name='quantity' decimal={false}/>
+                  <SelectField name='condition'/>
+                  <SubmitField value='Submit'/>
+                  <ErrorsField/>
+                  <HiddenField name='owner' value='fakeuser@foo.com'/>
+              </AutoForm>
+            </Grid.Column>
+          </Grid>
+        </div>
+        </Container>
+        </div>
     );
   }
 }
