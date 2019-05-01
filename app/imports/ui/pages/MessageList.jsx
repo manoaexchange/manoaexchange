@@ -48,6 +48,6 @@ export default withTracker(() => {
   return {
     messages: Messages.find({}).fetch(),
     profiles: Profiles.find({}).fetch(),
-    ready: (subscription.ready() && subscription2),
+    ready: (subscription.ready() && subscription2.ready()),
   };
 })(MessageList);

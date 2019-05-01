@@ -104,6 +104,24 @@
       "messageTime": "Tuesday 9:54 am",
       "messageBody": "Sounds good!",
       "flagged": false
+    },
+    {
+      "owner": "admin@foo.com",
+      "senderName": "admin@foo.com",
+      "name": "john@foo.com",
+      "receiverName": "john@foo.com",
+      "messageTime": "Monday 7:20 pm",
+      "messageBody": "It's works",
+      "flagged": false
+    },
+    {
+      "owner": "john@foo.com",
+      "senderName": "john@foo.com",
+      "name": "admin@foo.com",
+      "receiverName": "admin@foo.com",
+      "messageTime": "Monday 7:30 pm",
+      "messageBody": "It's nott works",
+      "flagged": false
     }
   ],
   "defaultProfile": [
@@ -122,7 +140,7 @@
     {
       "name": "John Doe",
       "owner": "john@foo.com",
-      "phone": "808-111-1234",
+      "phone": "808-111-1236",
       "imageurl": "https://avatars2.githubusercontent.com/u/42788145?s=460&v=4"
     }
   ],

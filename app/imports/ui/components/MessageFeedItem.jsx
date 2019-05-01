@@ -7,7 +7,7 @@ import { withRouter } from 'react-router-dom';
 class MessageFeedItem extends React.Component {
   render() {
     return (
-        <Card>
+        <Card.Group centered>
           <Segment inverted color='teal'>
             <Card.Content>
               <Card.Header>{this.props.messages.name}</Card.Header>
@@ -15,7 +15,7 @@ class MessageFeedItem extends React.Component {
               <Card.Description>{this.props.messages.messageBody}</Card.Description>
             </Card.Content>
           </Segment>
-        </Card>
+        </Card.Group>
     );
   }
 }
