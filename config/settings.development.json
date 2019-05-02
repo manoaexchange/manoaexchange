@@ -129,9 +129,9 @@
   "defaultReports": [
     {
       "name": "John Doe",
-      "issue": "Inappropriate Behavior",
-      "owner": "john@foo.com",
-      "message": "This is a test report on a person John Smith."
+      "report": "Report a Bug",
+      "message": "This is a test report on a person John Smith.",
+      "owner": "john@foo.com"
     }
   ],
   "galaxy.meteor.com": {
