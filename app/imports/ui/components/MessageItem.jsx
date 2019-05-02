@@ -9,7 +9,6 @@ class MessageItem extends React.Component {
     return (
         <Card>
           <Card.Content>
-            <Image floated='right' size='mini' src='/images/piniolkimg.png'/>
             <Card.Header>{this.props.messages.name}</Card.Header>
             <Card.Description>{this.props.messages.messageBody}</Card.Description>
             <Card.Meta>{this.props.messages.messageTime}</Card.Meta>
