@@ -22,5 +22,4 @@ export default class MessageFeed extends React.Component {
 
 MessageFeed.propTypes = {
   messages: PropTypes.array.isRequired,
-  ready: PropTypes.bool.isRequired,
 };

@@ -1,11 +1,12 @@
 import React from 'react';
-import { Container, Divider, Grid, Loader } from 'semantic-ui-react';
+import { Container, Divider, Grid, Loader, Card } from 'semantic-ui-react';
 import MessageFeed from '/imports/ui/components/MessageFeed';
 import MessageHead from '/imports/ui/components/MessageHead';
 import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import { Messages } from '/imports/api/stuff/messages';
+
 
 /** A simple static component to render some text for the landing page. */
 class Messagepage extends React.Component {
@@ -23,7 +24,9 @@ class Messagepage extends React.Component {
                   <div className='messagebgpage fauxBoxShadow'>
                     <MessageHead messages={this.props.messages} ready={this.props.ready}/>
                     <Divider hidden/>
-                    <MessageFeed messages={this.props.messages} ready={this.props.ready}/>
+                    <Card centered>
+                      {this.props.messages.map((message) => <MessageFeed key={message._id} messages={message}/>)}
+                    </Card>
                   </div>
                 </Grid.Column>
               </Grid.Row>
