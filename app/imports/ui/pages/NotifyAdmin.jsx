@@ -1,13 +1,14 @@
 import React from 'react';
-import { Stuffs } from '/imports/api/stuff/stuff';
+import { Reports, ReportSchema } from '/imports/api/reports/reports';
 import { Bert } from 'meteor/themeteorchef:bert';
 import { Meteor } from 'meteor/meteor';
-import { Form, Input, TextArea, Button, Select, Container } from 'semantic-ui-react';
-
-const issueOptions = [
-  { key: 'b', text: 'Report a bug', value: 'nug' },
-  { key: 'i', text: 'Report inappropriate behavior', value: 'behavior' },
-];
+import { Grid, Header, Segment } from 'semantic-ui-react';
+import AutoForm from 'uniforms-semantic/AutoForm';
+import TextField from 'uniforms-semantic/TextField';
+import SelectField from 'uniforms-semantic/SelectField';
+import SubmitField from 'uniforms-semantic/SubmitField';
+import HiddenField from 'uniforms-semantic/HiddenField';
+import ErrorsField from 'uniforms-semantic/ErrorsField';
 
 /** Renders the Page for adding a document. */
 class Notify extends React.Component {
@@ -32,57 +33,29 @@ class Notify extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { name, quantity, condition } = data;
+    const { name, report, message } = data;
     const owner = Meteor.user().username;
-    Stuffs.insert({ name, quantity, condition, owner }, this.insertCallback);
+    Reports.insert({ name, report, message, owner }, this.insertCallback);
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
     return (
-        <div className='generalPageMargin'>
-          <Container className='notifyAdmin'>
-            <div className='notifAdminBox fauxBoxShadow'>
-              <h1>Report an Issue</h1>
-              <Form>
-                <Form.Group widths='equal'>
-                  <Form.Field
-                      id='form-input-control-first-name'
-                      control={Input}
-                      label='First name'
-                      placeholder='First name'
-                  />
-                  <Form.Field
-                      id='form-input-control-last-name'
-                      control={Input}
-                      label='Last name'
-                      placeholder='Last name'
-                  />
-                  <Form.Field
-                      control={Select}
-                      options={issueOptions}
-                      label={{ children: 'Issue', htmlFor: 'form-select-control-gender' }}
-                      placeholder='Select'
-                      search
-                      searchInput={{ id: 'form-select-control-gender' }}
-                  />
-                </Form.Group>
-                <Form.Field
-                    id='form-textarea-control-opinion'
-                    control={TextArea}
-                    label='Comments'
-                    placeholder='Any other issues here'
-                />
-                <Form.Field
-                    id='form-button-control-public'
-                    control={Button}
-                    content='Confirm'
-                    label='Submit'
-                />
-              </Form>
-            </div>
-          </Container>
-        </div>
+        <Grid container centered>
+          <Grid.Column>
+            <Header as="h2" textAlign="center">Report an issue</Header>
+            <AutoForm ref={(ref) => { this.formRef = ref; } } schema={ReportSchema} onSubmit={this.submit}>
+              <Segment>
+                <TextField name='name'/>
+                <SelectField name='report'/>
+                <TextField name='message'/>
+                <SubmitField value='Submit'/>
+                <ErrorsField/>
+                <HiddenField name='owner' value='fakeuser@foo.com'/>
+              </Segment>
+            </AutoForm>
+          </Grid.Column>
+        </Grid>
     );
   }
 }

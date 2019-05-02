@@ -1,13 +1,12 @@
 import React from 'react';
-import { Table, Image, Button } from 'semantic-ui-react';
+import { Table, Button } from 'semantic-ui-react';
 import PropTypes from 'prop-types';
 import { withRouter, Link } from 'react-router-dom';
 import { Bert } from 'meteor/themeteorchef:bert';
-import { Items } from '/imports/api/stuff/items';
-
+import { Reports } from '/imports/api/reports/reports';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class StuffItemAdmin extends React.Component {
+class AdminPage extends React.Component {
   constructor(props) {
     super(props);
     this.onClick = this.onClick.bind(this);
@@ -25,22 +24,19 @@ class StuffItemAdmin extends React.Component {
     /* eslint-disable-next-line */
     const result = confirm('Delete this item?');
     if (result) {
-      Items.remove(this.props.items._id, this.deleteCallback);
+      Reports.remove(this.props.reports._id, this.deleteCallback);
     }
   }
 
   render() {
     return (
         <Table.Row>
-          <Table.Cell>{this.props.items.item}</Table.Cell>
-          <Table.Cell>{this.props.items.quantity}</Table.Cell>
-          <Table.Cell>{this.props.items.description}</Table.Cell>
-          <Table.Cell><Image src ={this.props.items.image} size = 'tiny'/> </Table.Cell>
-          <Table.Cell>{this.props.items.condition}</Table.Cell>
-          <Table.Cell>{this.props.items.category}</Table.Cell>
-          <Table.Cell>{this.props.items.owner}</Table.Cell>
+          <Table.Cell>{this.props.reports.owner}</Table.Cell>
+          <Table.Cell>{this.props.reports.name}</Table.Cell>
+          <Table.Cell>{this.props.reports.issue}</Table.Cell>
+          <Table.Cell>{this.props.reports.message}</Table.Cell>
           <Table.Cell>
-            <Link to={`/edit/${this.props.items._id}`}>Edit</Link>
+            <Link to={`/edit/${this.props.reports._id}`}>Edit</Link>
           </Table.Cell>
           <Table.Cell>
             <Button basic onClick={this.onClick}>Delete</Button>
@@ -51,9 +47,9 @@ class StuffItemAdmin extends React.Component {
 }
 
 /** Require a document to be passed to this component. */
-StuffItemAdmin.propTypes = {
-  items: PropTypes.object.isRequired,
+AdminPage.propTypes = {
+  reports: PropTypes.object.isRequired,
 };
 
 /** Wrap this component in withRouter since we use the <Link> React Router element. */
-export default withRouter(StuffItemAdmin);
+export default withRouter(AdminPage);

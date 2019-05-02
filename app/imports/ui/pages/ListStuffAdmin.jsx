@@ -5,6 +5,9 @@ import { Items } from '/imports/api/stuff/items';
 import StuffItemAdmin from '/imports/ui/components/StuffItemAdmin';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
+import ProfileAdmin from '../components/ProfileAdmin';
+import { Reports } from '/imports/api/reports/reports';
+import AdminPage from '/imports/ui/components/AdminPage';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */
 class ListItemAdmin extends React.Component {
@@ -18,7 +21,7 @@ class ListItemAdmin extends React.Component {
   renderPage() {
     return (
         <Container>
-          <Header as="h2" textAlign="center">Items you listed for sale</Header>
+          <Header as="h2" textAlign="center">All items listed for sale</Header>
           <Table celled>
             <Table.Header>
               <Table.Row>
@@ -30,10 +33,39 @@ class ListItemAdmin extends React.Component {
                 <Table.HeaderCell>Category</Table.HeaderCell>
                 <Table.HeaderCell>Owner</Table.HeaderCell>
                 <Table.HeaderCell>Admin</Table.HeaderCell>
+                <Table.HeaderCell>Delete</Table.HeaderCell>
               </Table.Row>
             </Table.Header>
             <Table.Body>
-              {this.props.items.map((item) => <StuffItemAdmin key={item._id} items={item} />)}
+              {this.props.items.map((item) => <StuffItemAdmin key={item._id} items={item}/>)}
+            </Table.Body>
+          </Table>
+          <Header as="h2" textAlign="center">List of reports</Header>
+          <Table celled>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Owner</Table.HeaderCell>
+                <Table.HeaderCell>Name</Table.HeaderCell>
+                <Table.HeaderCell>Issue</Table.HeaderCell>
+                <Table.HeaderCell>Message</Table.HeaderCell>
+                <Table.HeaderCell>Edit</Table.HeaderCell>
+                <Table.HeaderCell>Delete</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {this.props.reports.map((report) => <AdminPage key={report._id} reports={report}/>)}
+            </Table.Body>
+          </Table>
+          <Header as="h2" textAlign="center">All users accounts</Header>
+          <Table celled>
+            <Table.Header>
+              <Table.Row>
+                <Table.HeaderCell>Owner</Table.HeaderCell>
+                <Table.HeaderCell>Delete</Table.HeaderCell>
+              </Table.Row>
+            </Table.Header>
+            <Table.Body>
+              {this.props.users.map((user) => <ProfileAdmin key={user._id} users={user}/>)}
             </Table.Body>
           </Table>
         </Container>
@@ -44,6 +76,8 @@ class ListItemAdmin extends React.Component {
 /** Require an array of Stuff documents in the props. */
 ListItemAdmin.propTypes = {
   items: PropTypes.array.isRequired,
+  users: PropTypes.array.isRequired,
+  reports: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
 
@@ -51,8 +85,12 @@ ListItemAdmin.propTypes = {
 export default withTracker(() => {
   // Get access to Stuff documents.
   const subscription = Meteor.subscribe('ItemsAdmin');
+  const subscription2 = Meteor.subscribe('UserView');
+  const subscription3 = Meteor.subscribe('ReportsAdmin');
   return {
     items: Items.find({}).fetch(),
-    ready: subscription.ready(),
+    users: Meteor.users.find({}).fetch(),
+    reports: Reports.find({}).fetch(),
+    ready: subscription.ready() && subscription2.ready() && subscription3.ready(),
   };
 })(ListItemAdmin);

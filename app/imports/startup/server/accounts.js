@@ -29,3 +29,13 @@ if (Meteor.users.find().count() === 0) {
     console.log('Cannot initialize the database!  Please invoke meteor with a settings file.');
   }
 }
+
+Meteor.publish('UserView', function publish() {
+  if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
+    Meteor.users.allow({
+      remove: function (userId, user) { return true; },
+    });
+    return Meteor.users.find();
+  }
+  return this.ready();
+});
