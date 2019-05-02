@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Messages } from '/imports/api/stuff/messages';
 
 /** Renders a single row in the List Stuff table. See pages/ListStuff.jsx. */
-class MessageFeed extends React.Component {
+export default class MessageFeed extends React.Component {
   render() {
     return (
         <Card.Group centered>
@@ -24,5 +24,3 @@ MessageFeed.propTypes = {
   messages: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
-
-export default withRouter(MessageFeed);
