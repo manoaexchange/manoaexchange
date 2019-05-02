@@ -12,7 +12,7 @@ export default class MessageHead extends React.Component {
           <Grid centered style={msgTitleMargin}>
             <h2>Messages from Katherine Piniol</h2>
             <div className='ui two buttons'>
-              <Button color='teal' as={NavLink} activeClassName="" exact to="/userprofile">
+              <Button color='teal' as={NavLink} activeClassName="" exact to="/profile">
                 Profile
               </Button>
               <Button color='red' as={NavLink} activeClassName="" exact to={`/notify/${this.props.messages.name}`}>
