@@ -45,10 +45,9 @@ class ListItemAdmin extends React.Component {
             <Table.Header>
               <Table.Row>
                 <Table.HeaderCell>Owner</Table.HeaderCell>
-                <Table.HeaderCell>Name</Table.HeaderCell>
                 <Table.HeaderCell>Issue</Table.HeaderCell>
                 <Table.HeaderCell>Message</Table.HeaderCell>
-                <Table.HeaderCell>Edit</Table.HeaderCell>
+                <Table.HeaderCell>Message</Table.HeaderCell>
                 <Table.HeaderCell>Delete</Table.HeaderCell>
               </Table.Row>
             </Table.Header>

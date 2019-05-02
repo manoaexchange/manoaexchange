@@ -5,6 +5,7 @@ import { Meteor } from 'meteor/meteor';
 import { Grid, Header, Segment } from 'semantic-ui-react';
 import AutoForm from 'uniforms-semantic/AutoForm';
 import TextField from 'uniforms-semantic/TextField';
+import LongTextField from 'uniforms-semantic/LongTextField';
 import SelectField from 'uniforms-semantic/SelectField';
 import SubmitField from 'uniforms-semantic/SubmitField';
 import HiddenField from 'uniforms-semantic/HiddenField';
@@ -33,29 +34,33 @@ class Notify extends React.Component {
 
   /** On submit, insert the data. */
   submit(data) {
-    const { name, report, message } = data;
+    const { name, reportType, message } = data;
     const owner = Meteor.user().username;
-    Reports.insert({ name, report, message, owner }, this.insertCallback);
+    Reports.insert({ name, reportType, message, owner }, this.insertCallback);
   }
 
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
     return (
-        <Grid container centered>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">Report an issue</Header>
-            <AutoForm ref={(ref) => { this.formRef = ref; } } schema={ReportSchema} onSubmit={this.submit}>
-              <Segment>
-                <TextField name='name'/>
-                <SelectField name='report'/>
-                <TextField name='message'/>
-                <SubmitField value='Submit'/>
-                <ErrorsField/>
-                <HiddenField name='owner' value='fakeuser@foo.com'/>
-              </Segment>
-            </AutoForm>
-          </Grid.Column>
-        </Grid>
+        <div className='landing description'>
+          <Grid container centered>
+            <Grid.Column>
+              <Header as="h2" textAlign="center">Report an issue</Header>
+              <AutoForm ref={(ref) => {
+                this.formRef = ref;
+              }} schema={ReportSchema} onSubmit={this.submit}>
+                <Segment>
+                  <TextField name='name'/>
+                  <SelectField name='reportType'/>
+                  <LongTextField name='message'/>
+                  <SubmitField value='Submit'/>
+                  <ErrorsField/>
+                  <HiddenField name='owner' value='fakeuser@foo.com'/>
+                </Segment>
+              </AutoForm>
+            </Grid.Column>
+          </Grid>
+        </div>
     );
   }
 }

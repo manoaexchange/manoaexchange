@@ -129,7 +129,7 @@
   "defaultReports": [
     {
       "name": "John Doe",
-      "report": "Report a Bug",
+      "reportType": "Other",
       "message": "This is a test report on a person John Smith.",
       "owner": "john@foo.com"
     }
