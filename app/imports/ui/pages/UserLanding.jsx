@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, Divider, Input, Icon, Container } from 'semantic-ui-react';
+import { Grid, Divider, Icon, Container, Button } from 'semantic-ui-react';
+import { NavLink } from 'react-router-dom';
 
 /** A simple static component to render some text for the landing page. */
 class UserLanding extends React.Component {
@@ -17,7 +18,7 @@ class UserLanding extends React.Component {
           </div>
           <div className='landing description'>
             <h1 className="centered ui header gettingStarted">Quick Start Options</h1>
-            <Grid container columns={3} centered relaxed>
+            <Grid container columns={2} centered relaxed>
               <Grid.Row>
                 <Grid.Column>
                   <Divider horizontal>
@@ -27,16 +28,10 @@ class UserLanding extends React.Component {
                     <h1>Categories</h1>
                     <p>Not sure what you need?</p>
                     <p>Search our directories to see what is available.</p>
-                  </div>
-                </Grid.Column>
-                <Grid.Column>
-                  <Divider horizontal>
-                    <Icon name='question circle' size='big'/>
-                  </Divider>
-                  <div className='text landingSearch'>
-                    <h1>Advanced Search</h1>
-                    <p>Already know exactly what you need?</p>
-                    <p>Advanced search is here to quickly narrow your search!</p>
+                    <Button fluid color='olive' floated='right' as={NavLink} activeClassName=""
+                            exact to='/categories'>
+                      Categories
+                    </Button>
                   </div>
                 </Grid.Column>
                 <Grid.Column>
@@ -47,16 +42,12 @@ class UserLanding extends React.Component {
                     <h1>List Items</h1>
                     <p>Looking to sell something?</p>
                     <p>Create a new item listing here!</p>
+                    <Button fluid color='olive' as={NavLink} activeClassName=""
+                            exact to='/add'>
+                      Add Item
+                    </Button>
                   </div>
                 </Grid.Column>
-              </Grid.Row>
-              <Divider horizontal>
-                <Icon name='search' size='massive'/>
-              </Divider>
-              <Grid.Row>
-                <div>
-                  <Input style={{ width: '500px' }} size='massive' icon='search' placeholder='Search'/>
-                </div>
               </Grid.Row>
             </Grid>
           </div>

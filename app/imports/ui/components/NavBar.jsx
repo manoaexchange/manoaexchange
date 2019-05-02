@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import { withRouter, NavLink } from 'react-router-dom';
-import { Menu, Dropdown, Input, Container } from 'semantic-ui-react';
+import { Menu, Dropdown, Container } from 'semantic-ui-react';
 import { Roles } from 'meteor/alanning:roles';
 
 /** The NavBar appears at the top of every page. Rendered by the App Layout component. */
@@ -19,14 +19,12 @@ class NavBar extends React.Component {
 
                 <Menu.Item icon='home' as={NavLink} activeClassName="" exact to="/home"></Menu.Item>
             )}
-            <Menu.Item><Input style={{ width: '650px' }} icon='search' placeholder='Search'/></Menu.Item>
             <Menu.Item position='right' as={NavLink} activeClassName="active" exact to="/categories"
-                       key='add'>Categories</Menu.Item>
-
+                       key='category'>Categories</Menu.Item>
             {this.props.currentUser ? (
                 [<Menu.Item icon='add' as={NavLink} activeClassName="active" exact to="/add" key='add'></Menu.Item>,
                   <Menu.Item icon='envelope' as={NavLink} activeClassName="active" exact to="/messagelist"
-                             key='add'></Menu.Item>,
+                             key='message'></Menu.Item>,
                   <Menu.Item icon='user' as={NavLink} activeClassName="active" exact to="/profile"
                              key='list'></Menu.Item>]
             ) : ''}

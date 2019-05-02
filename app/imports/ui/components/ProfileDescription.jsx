@@ -12,7 +12,7 @@ export default class ProfileDescription extends React.Component {
           <h2>{this.props.profiles.name}</h2>
           <Image src={this.props.profiles.imageurl} size='medium' inline/>
           <p>
-            <Button color='red' centered as={NavLink} activeClassName=""
+            <Button color='red' as={NavLink} activeClassName=""
                     exact to={`/notify/${this.props.profiles.name}`}>
               Report
             </Button>
@@ -31,5 +31,4 @@ export default class ProfileDescription extends React.Component {
 /** Require a document to be passed to this component. */
 ProfileDescription.propTypes = {
   profiles: PropTypes.object.isRequired,
-  notes: PropTypes.array.isRequired,
 };
