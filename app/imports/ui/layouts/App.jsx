@@ -23,7 +23,6 @@ import MessageList from '../pages/MessageList';
 import NotifyAdmin from '../pages/NotifyAdmin';
 import Categories from '../pages/Categories';
 import CategoryList from '../pages/CategoryList';
-import SearchPage from '../pages/SearchPage';
 
 /** Top-level layout component for this application. Called in imports/startup/client/startup.jsx. */
 class App extends React.Component {
@@ -38,7 +37,6 @@ class App extends React.Component {
                 <Route path="/signup" component={Signup}/>
                 <Route path="/categories" component={Categories}/>
                 <Route path="/categoryList/:_id" component={CategoryList}/>
-                <Route path="/search" component={SearchPage}/>
                 <ProtectedRoute path="/profile" component={Profilepage}/>
                 <ProtectedRoute path="/editprofile/:_id" component={EditProfile}/>
                 <ProtectedRoute path="/message" component={Message}/>

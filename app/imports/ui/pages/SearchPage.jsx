@@ -1,6 +1,6 @@
 import React from 'react';
 import { Meteor } from 'meteor/meteor';
-import { Container, Header, Loader, Dropdown, Table, Image, Input, Grid, Button, Search } from 'semantic-ui-react';
+import { Container, Header, Loader, Table, Image, Grid, Button, Search } from 'semantic-ui-react';
 import { Items } from '/imports/api/stuff/items';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
@@ -14,6 +14,49 @@ class SearchPage extends React.Component {
     this.handleSort = this.handleSort.bind(this);
   }
 
+  source = [
+    {
+      item: 'Basket',
+      description: 'nice',
+      quantity: 3,
+      category: 'Furniture',
+      owner: 'john@foo.com',
+      image: 'https://www.stock-free.org/images/Thanksgiving-Stock-Free-Image-08112015-image-170.jpg',
+      condition: 'excellent',
+      flagged: false,
+    },
+    {
+      item: 'Straw Basket',
+      description: 'A Basket',
+      quantity: 1,
+      category: 'Storage',
+      owner: 'sample@sample.com',
+      image: 'https://www.stock-free.org/images/Thanksgiving-Stock-Free-Image-08112015-image-170.jpg',
+      condition: 'good',
+      flagged: false,
+    },
+    {
+      item: 'Desk Lamp',
+      description: 'Unwanted lamp',
+      quantity: 1,
+      category: 'Appliance',
+      owner: 'john@foo.com',
+      image: 'https://www.publicdomainpictures.net/pictures/200000/nahled/desk-lamp-1475958733bLG.jpg',
+      condition: 'good',
+      flagged: false,
+    },
+    {
+      item: 'Desk Lamps',
+      description: "I'm graduating and no longer have a use for this. I'm planning on selling it for $20.",
+      quantity: 2,
+      category: 'Appliance',
+      owner: 'admin@foo.com',
+      image: 'https://www.publicdomainpictures.net/pictures/200000/nahled/desk-lamp-1475958733bLG.jpg',
+      condition: 'good',
+      flagged: false,
+    },
+  ];
+
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
   render() {
     return (this.props.ready) ? this.renderPage() : <Loader active>Getting data</Loader>;
@@ -21,7 +64,7 @@ class SearchPage extends React.Component {
 
   docId = this.props.docId;
 
-  allItems = Items.find({ item: 'Desk Lamp' });
+  allItems = Items.find();
 
   state = {
     column: null,
@@ -57,7 +100,7 @@ class SearchPage extends React.Component {
 
   resetComponent = () => this.setState({ isLoading: false, results: [], value: '' })
 
-  handleResultSelect = (e, { result }) => this.setState({ value: result.items.item })
+  handleResultSelect = (e, { result }) => this.setState({ value: result.item })
 
   handleSearchChange = (e, { value }) => {
     this.setState({ isLoading: true, value });
@@ -70,27 +113,19 @@ class SearchPage extends React.Component {
 
       this.setState({
         isLoading: false,
-        results: _.filter(this.allItems, isMatch),
+        results: _.filter(this.source, isMatch),
       });
     }, 300);
   }
 
   /** Render the page once subscriptions have been received. */
   renderPage() {
-    const conditions = [
-      { key: 'all', text: 'all', value: 'all' },
-      { key: 'excellent', text: 'excellent', value: 'excellent' },
-      { key: 'good', text: 'good', value: 'good' },
-      { key: 'fair', text: 'fair', value: 'fair' },
-      { key: 'poor', text: 'poor', value: 'poor' },
-    ];
     const { column, data, direction, isLoading, value, results } = this.state;
     return (
         <div className='generalPageMargin'>
           <Container>
             <Header as='h2' textAlign='center'>Search Results</Header>
             <div className='CategoriesPagesBox listSearchBox fauxBoxShadow'>
-
               <Search
                   fluid
                   loading={isLoading}
@@ -102,7 +137,6 @@ class SearchPage extends React.Component {
                   value={value}
                   {...this.props}
               />
-
               <Table sortable basic='very' celled fixed>
                 <Table.Header>
                   <Table.Row>
@@ -199,3 +233,4 @@ export default withTracker(({ match }) => {
     ready: subscription.ready(),
   };
 })(SearchPage);
+
