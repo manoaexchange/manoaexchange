@@ -10,7 +10,6 @@ import ErrorsField from 'uniforms-semantic/ErrorsField';
 import { Meteor } from 'meteor/meteor';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
-import { Redirect } from 'react-router-dom';
 
 /** Renders the Page for editing a single document. */
 class EditProfilepage extends React.Component {
@@ -20,7 +19,7 @@ class EditProfilepage extends React.Component {
     const { name, imageurl, email, _id } = data;
     Profiles.update(_id, { $set: { name, imageurl, email } }, (error) => (error ?
         Bert.alert({ type: 'danger', message: `Update failed: ${error.message}` }) :
-        Bert.alert({ type: 'success', message: 'Update succeeded' }) && <Redirect to="/home"/>));
+        Bert.alert({ type: 'success', message: 'Update succeeded' })));
   }
 
   /** If the subscription(s) have been received, render the page, otherwise show a loading icon. */
