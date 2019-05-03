@@ -33,6 +33,7 @@ class EditItem extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
+        <div className='generalPageMargin'>
         <Grid container centered>
           <Grid.Column>
             <Header as="h2" textAlign="center">Edit Item</Header>
@@ -51,6 +52,7 @@ class EditItem extends React.Component {
             </AutoForm>
           </Grid.Column>
         </Grid>
+        </div>
     );
   }
 }

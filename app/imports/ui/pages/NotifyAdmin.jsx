@@ -41,21 +41,25 @@ class Notify extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   render() {
     return (
-        <Grid container centered>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">Report an issue</Header>
-            <AutoForm ref={(ref) => { this.formRef = ref; } } schema={ReportSchema} onSubmit={this.submit}>
-              <Segment>
-                <TextField name='name'/>
-                <SelectField name='report'/>
-                <TextField name='message'/>
-                <SubmitField value='Submit'/>
-                <ErrorsField/>
-                <HiddenField name='owner' value='fakeuser@foo.com'/>
-              </Segment>
-            </AutoForm>
-          </Grid.Column>
-        </Grid>
+        <div className='generalPageMargin'>
+          <Grid container centered>
+            <Grid.Column>
+              <Header as="h2" textAlign="center">Report an issue</Header>
+              <AutoForm ref={(ref) => {
+                this.formRef = ref;
+              }} schema={ReportSchema} onSubmit={this.submit}>
+                <Segment>
+                  <TextField name='name'/>
+                  <SelectField name='report'/>
+                  <TextField name='message'/>
+                  <SubmitField value='Submit'/>
+                  <ErrorsField/>
+                  <HiddenField name='owner' value='fakeuser@foo.com'/>
+                </Segment>
+              </AutoForm>
+            </Grid.Column>
+          </Grid>
+        </div>
     );
   }
 }
