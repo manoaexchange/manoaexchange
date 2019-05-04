@@ -33,7 +33,7 @@ if (Meteor.users.find().count() === 0) {
 Meteor.publish('UserView', function publish() {
   if (this.userId && Roles.userIsInRole(this.userId, 'admin')) {
     Meteor.users.allow({
-      remove: function (userId, user) { return true; },
+      remove: function () { return true; },
     });
     return Meteor.users.find();
   }
