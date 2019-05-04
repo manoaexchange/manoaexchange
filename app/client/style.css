@@ -11,7 +11,8 @@
   box-shadow: none;
   border: none;
 }
-.ui.borderless.middlemenu.menu{
+
+.ui.borderless.middlemenu.menu {
   box-shadow: none;
   border: none;
 }
@@ -30,7 +31,7 @@
 .fauxBoxShadow {
   padding: 15px 15px 40px 15px;
   margin-bottom: 0px;
-  box-shadow:  0px 2px 4px 1px grey;
+  box-shadow: 0px 2px 4px 1px grey;
 }
 
 .navMenu {
@@ -41,7 +42,7 @@
 .landing.banner {
   background: url('images/UH_Liliuokalani_Center.JPG') no-repeat center center fixed;
   background-size: cover;
-  height: 400px;
+  height: 330px;
   opacity: .7;
 }
 

@@ -6,7 +6,6 @@ import PropTypes from 'prop-types';
 import { withTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor';
 import { Profiles } from '/imports/api/profile/profile';
-import { Reports } from '/imports/api/reports/reports';
 import { Items } from '/imports/api/stuff/items';
 
 class Profilepage extends React.Component {
@@ -15,8 +14,9 @@ class Profilepage extends React.Component {
   }
 
   renderPage() {
+    const topMargin = { marginTop: '25px' };
     return (
-        <div className='generalPageMargin'>
+        <div className='generalPageMargin' style={ topMargin }>
           <Grid centered columns={3}>
             <Segment className='profile desc box'>
               <Container>
@@ -39,7 +39,6 @@ class Profilepage extends React.Component {
 /** Require an array of Profiles documents in the props. */
 Profilepage.propTypes = {
   profiles: PropTypes.array.isRequired,
-  reports: PropTypes.array.isRequired,
   items: PropTypes.array.isRequired,
   ready: PropTypes.bool.isRequired,
 };
@@ -48,12 +47,10 @@ Profilepage.propTypes = {
 export default withTracker(() => {
   // Get access to Profiles documents.
   const subscription = Meteor.subscribe('Profiles');
-  const subscription2 = Meteor.subscribe('Reports');
-  const subscription3 = Meteor.subscribe('Items');
+  const subscription2 = Meteor.subscribe('Items');
   return {
     profiles: Profiles.find({}).fetch(),
-    reports: Reports.find({}).fetch(),
     items: Items.find({}).fetch(),
-    ready: (subscription.ready() && subscription2.ready() && subscription3.ready()),
+    ready: (subscription.ready() && subscription2.ready()),
   };
 })(Profilepage);

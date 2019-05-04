@@ -1,5 +1,5 @@
 import React from 'react';
-import { Grid, Loader, Header, Segment } from 'semantic-ui-react';
+import { Grid, Loader, Header, Segment, Container } from 'semantic-ui-react';
 import { Items, ItemSchema } from '/imports/api/stuff/items';
 import { Bert } from 'meteor/themeteorchef:bert';
 import AutoForm from 'uniforms-semantic/AutoForm';
@@ -33,24 +33,28 @@ class EditItem extends React.Component {
   /** Render the form. Use Uniforms: https://github.com/vazco/uniforms */
   renderPage() {
     return (
-        <Grid container centered>
-          <Grid.Column>
-            <Header as="h2" textAlign="center">Edit Item</Header>
-            <AutoForm schema={ItemSchema} onSubmit={this.submit} model={this.props.doc}>
-              <Segment>
-                <TextField name='item'/>
-                <LongTextField name='description'/>
-                <TextField name='image'/>
-                <NumField name='quantity' decimal={false}/>
-                <SelectField name='condition'/>
-                <TextField name='category'/>
-                <SubmitField value='Submit'/>
-                <ErrorsField/>
-                <HiddenField name='owner' />
-              </Segment>
-            </AutoForm>
-          </Grid.Column>
-        </Grid>
+        <div className='generalPageMargin'>
+          <Container>
+            <div className='CategoriesPagesBox fauxBoxShadow'>
+              <Grid centered>
+                <Grid.Column>
+                  <Header as="h2" textAlign="center">Edit Item</Header>
+                  <AutoForm schema={ItemSchema} onSubmit={this.submit} model={this.props.doc}>
+                    <TextField name='item'/>
+                    <LongTextField name='description'/>
+                    <TextField name='image'/>
+                    <NumField name='quantity' decimal={false}/>
+                    <SelectField name='condition'/>
+                    <TextField name='category'/>
+                    <SubmitField value='Submit'/>
+                    <ErrorsField/>
+                    <HiddenField name='owner'/>
+                  </AutoForm>
+                </Grid.Column>
+              </Grid>
+            </div>
+          </Container>
+        </div>
     );
   }
 }
