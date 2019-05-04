@@ -68,44 +68,6 @@
       "flagged": false
     }
   ],
-  "defaultMessages": [
-    {
-      "owner": "sample@sample.com",
-      "senderName": "sample@sample.com",
-      "name": "john@foo.com",
-      "receiverName": "john@foo.com",
-      "messageTime": "Monday 12:32 pm",
-      "messageBody": "Hello, my name is Katherine Piniol, and I was interested in the lamp you had up for sale.",
-      "flagged": false
-    },
-    {
-      "owner": "john@foo.com",
-      "senderName": "john@foo.com",
-      "name": "sample@sample.com",
-      "receiverName": "sample@sample.com",
-      "messageTime": "Monday 3:54 pm",
-      "messageBody": "Yes, hi! The listed price was $15.62, does that work for you?",
-      "flagged": false
-    },
-    {
-      "owner": "sample@sample.com",
-      "senderName": "sample@sample.com",
-      "name": "john@foo.com",
-      "receiverName": "john@foo.com",
-      "messageTime": "Monday 7:20 pm",
-      "messageBody": "It's works just fine. Shall we meet at Campus Center on Friday at\n                        3?",
-      "flagged": false
-    },
-    {
-      "owner": "john@foo.com",
-      "senderName": "john@foo.com",
-      "name": "sample@sample.com",
-      "receiverName": "sample@sample.com",
-      "messageTime": "Tuesday 9:54 am",
-      "messageBody": "Sounds good!",
-      "flagged": false
-    }
-  ],
   "defaultProfile": [
     {
       "name": "Katherine Piniol",
