@@ -96,6 +96,11 @@
       "owner": "john@foo.com"
     }
   ],
+  "defaultCategories": [
+    {
+      "category": "Stuff"
+    }
+  ],
   "galaxy.meteor.com": {
     "env": {
       "MONGO_URL": "mongodb+srv://piniolk:TLWnK8QCviBgs653@cluster0-1ptc7.mongodb.net/test?retryWrites=true"
