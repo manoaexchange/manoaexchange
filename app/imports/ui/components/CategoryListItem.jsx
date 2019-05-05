@@ -19,10 +19,6 @@ class CategoryListItem extends React.Component {
                     exact to={`/notify/${this.props.items._id}`}>
               Report
             </Button>
-            <Button color='teal' floated='right' as={NavLink} activeClassName=""
-                    exact to='/message'>
-              Message
-            </Button>
           </Grid>
           </Table.Cell>
         </Table.Row>
