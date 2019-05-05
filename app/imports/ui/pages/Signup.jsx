@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Redirect } from 'react-router-dom';
 import { Container, Form, Grid, Header, Message, Segment } from 'semantic-ui-react';
 import { Accounts } from 'meteor/accounts-base';
+import { Profiles } from '/imports/api/profile/profile';
 
 /**
  * Signup component is similar to signin component, but we attempt to create a new user instead.
@@ -29,10 +30,16 @@ export default class Signup extends React.Component {
     Accounts.createUser({ email, username: email, password, Boolean: false }, (err) => {
       if (err) {
         this.setState({ error: err.reason });
-      } else {
-        this.setState({ error: '', redirectToReferer: true });
       }
     });
+    Profiles.insert({ name: 'Temp Name', owner: email, phone: '000-0000', imageurl: 'https://via.placeholder.com/300' },
+        (err) => {
+          if (err) {
+            this.setState({ error: err.reason });
+          } else {
+            this.setState({ error: '', redirectToReferer: true });
+          }
+        });
   }
 
   /** Display the signup form. */

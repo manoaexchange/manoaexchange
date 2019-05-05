@@ -9,7 +9,7 @@ class Footer extends React.Component {
           <div style={divStyle} className="ui center aligned container">
             <footer>
               <hr/>
-              Department of Information and Computer Sciences <br/>
+              Manoa Exchange<br/>
               University of Hawaii<br/>
               Honolulu, HI 96822
             </footer>

@@ -26,8 +26,8 @@ class UserLanding extends React.Component {
                   </Divider>
                   <div className='text landingCategories'>
                     <h1>Categories</h1>
-                    <p>Not sure what you need?</p>
-                    <p>Search our directories to see what is available.</p>
+                    <p>Not sure what you need? Search our directories to see what is available.</p>
+                    <p>Once you find what you like, send them an email!</p>
                     <Button fluid color='olive' floated='right' as={NavLink} activeClassName=""
                             exact to='/categories'>
                       Categories
@@ -42,6 +42,7 @@ class UserLanding extends React.Component {
                     <h1>List Items</h1>
                     <p>Looking to sell something?</p>
                     <p>Create a new item listing here!</p>
+                    <p></p>
                     <Button fluid color='olive' as={NavLink} activeClassName=""
                             exact to='/add'>
                       Add Item
