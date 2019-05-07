@@ -5,7 +5,6 @@ import { Items } from '/imports/api/stuff/items';
 import { withTracker } from 'meteor/react-meteor-data';
 import PropTypes from 'prop-types';
 import _ from 'lodash';
-// import { NavLink } from 'react-router-dom';
 import CategoryListItem from '/imports/ui/components/CategoryListItem';
 
 /** Renders a table containing all of the Stuff documents. Use <StuffItem> to render each row. */

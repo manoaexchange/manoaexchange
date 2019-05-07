@@ -13,7 +13,8 @@ class Categories extends React.Component {
   }
 
   renderPage() {
-    let categoryList = this.props.items.map(obj => obj.category);
+    let categoryList = _.orderBy(this.props.items, ['category'], ['asc']);
+    categoryList = categoryList.map(obj => obj.category);
     categoryList = _.uniq(categoryList);
     return (
         <div>
@@ -26,13 +27,13 @@ class Categories extends React.Component {
                 {
                   categoryList.map((category, index) => <Card centered as={NavLink} activeClassName="" exact
                                                               to={`/categoryList/${category}`}
-                                                              key={index}v>
-                        <div className='CategoryBox fauxBoxShadow'>
-                          <Grid centered>
-                            <h2>{category}</h2>
-                          </Grid>
-                        </div>
-                      </Card>)}
+                                                              key={index}>
+                    <div className='CategoryBox fauxBoxShadow'>
+                      <Grid centered>
+                        <h2>{category}</h2>
+                      </Grid>
+                    </div>
+                  </Card>)}
               </Card.Group>
             </div>
           </Container>

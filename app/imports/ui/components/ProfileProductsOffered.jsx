@@ -1,4 +1,3 @@
-import { Meteor } from 'meteor/meteor';
 import React from 'react';
 import { Card } from 'semantic-ui-react';
 import Product from '/imports/ui/components/Product';

@@ -35,7 +35,7 @@ class Product extends React.Component {
             </Card.Description>
           </Card.Content>
           <Card.Content extra align='center'>
-            <Button basic color='red' as={NavLink} activeClassName="" fluid
+            <Button color='red' as={NavLink} activeClassName="" fluid
                     exact to={`/notify/${this.props.items._id}`}>
               Report
             </Button>

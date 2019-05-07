@@ -1,7 +1,6 @@
 import React from 'react';
 import { Image, Button } from 'semantic-ui-react';
 import { NavLink } from 'react-router-dom';
-import { Bert } from 'meteor/themeteorchef:bert';
 import PropTypes from 'prop-types';
 
 export default class ProfileDescription extends React.Component {
