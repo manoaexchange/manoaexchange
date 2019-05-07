@@ -36,6 +36,10 @@ class Product extends React.Component {
           </Card.Content>
           <Card.Content extra align='center'>
             <div className='ui two buttons'>
+              <Button basic color='teal' floated='right' as={NavLink} activeClassName=""
+                      exact to='/message'>
+                Message
+              </Button>
               <Button basic color='red' as={NavLink} activeClassName=""
                       exact to={`/notify/${this.props.items._id}`}>
                 Report
